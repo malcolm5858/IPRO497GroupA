@@ -1,0 +1,27 @@
+Database: studentSurvey
+
+Collection: Professors
+Columns: professor_id, professor_name
+
+Collection: Surveys
+Columns: survey_id, course_held_id, professor_made_questions
+
+Collection: Courses
+Columns: department, course_number, course_id
+
+Collection: Courses_held
+Columns: course_held_id, professor_id, course_id, semester
+
+Collection: Responses
+Columns: responses_id, survey_id, student_id, professor_rating, class_rating, default_questions_responses, professor_made_questions_responses
+
+Collection: Students
+Columns: student_id, student_name
+
+
+
+
+
+
+
+
