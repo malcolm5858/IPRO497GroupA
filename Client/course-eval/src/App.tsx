@@ -1,8 +1,8 @@
 import React from "react";
-import { Survey } from "./Componets/Survey";
+import { Survey } from "./Components/Survey";
 
 function App() {
-  return <Survey onSubmit={() => {}} />;
+  return <Survey />;
 }
 
 export default App;
