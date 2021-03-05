@@ -5,23 +5,17 @@ import { Radio, TextArea, Form } from "formik-semantic-ui-react";
 
 interface Values {
   professor_rating: string;
-  courseComments: string;
+  course_comments: string;
   class_rating: string;
-  materialComments: string;
-}
-
-interface Result {
-  professor_rating: string;
-  class_rating: string;
-  default_questions_responses: [string, string];
+  class_comments: string;
 }
 
 export const Survey: React.FC = () => {
   const initialValues: Values = {
     professor_rating: "",
-    courseComments: "",
+    course_comments: "",
     class_rating: "",
-    materialComments: "",
+    class_comments: "",
   };
   return (
     <div>
@@ -33,16 +27,6 @@ export const Survey: React.FC = () => {
         onSubmit={(data, { setSubmitting }) => {
           setSubmitting(true);
           // make async call
-          let questions: [string, string] = [
-            data.materialComments,
-            data.courseComments,
-          ];
-          let result: Result = {
-            professor_rating: data.professor_rating,
-            class_rating: data.class_rating,
-            default_questions_responses: questions,
-          };
-          result.class_rating = data.class_rating;
 
           fetch("http://localhost:8000/surveyResponse", {
             method: "POST",
@@ -50,7 +34,7 @@ export const Survey: React.FC = () => {
               Accept: "application/json",
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(result),
+            body: JSON.stringify(data),
           });
           console.log("submit: ", data);
           setSubmitting(false);
@@ -74,7 +58,7 @@ export const Survey: React.FC = () => {
             <TextArea
               placeholder="Input text here"
               style={{ minHeight: 100 }}
-              name="courseComments"
+              name="course_comments"
             />
             <h3 style={{ paddingLeft: 20 }}>Course</h3>
             <div style={{ paddingLeft: 20 }}>
@@ -93,7 +77,7 @@ export const Survey: React.FC = () => {
             <TextArea
               placeholder="Input text here"
               style={{ minHeight: 100 }}
-              name="materialComments"
+              name="class_comments"
             />
 
             <Button
