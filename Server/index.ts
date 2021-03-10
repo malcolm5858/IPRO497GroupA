@@ -3,6 +3,7 @@ import express from 'express';
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 const assert = require('assert');
+const cors = require('cors');
 
 // rest of the code remains same
 const app = express();
@@ -11,6 +12,7 @@ const PORT = 8000;
 const db_url = 'mongodb://localhost:27017';
 const db_name = 'studentSurvey';
 
+app.use(cors());
 app.use(express.json());
 
 
