@@ -1,6 +1,7 @@
 import express from 'express';
 
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
 const assert = require('assert');
 
 // rest of the code remains same
@@ -41,7 +42,38 @@ app.post('/surveyResponse', async (req, res) => {
   }
 })
 
+app.get('/teacherResults/:prof_id', async (req, res) => {
+  try {
+    const { prof_id } = req.params;
+    var results;
 
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+
+      const db = client.db(db_name);
+      const courses_held = db.collection('Courses_held');
+      const surveys = db.collection('Surveys');
+      const responses = db.collection('Responses');
+      
+      const relevant_courses = (await courses_held.find({professor_id: new ObjectId(prof_id)}).toArray()).map((a: any) => a._id);
+      console.log(relevant_courses);
+      const relevant_surveys = (await surveys.find({course_held_id: {$in: relevant_courses}}).toArray()).map((a: any) => a._id);
+      console.log(relevant_surveys);
+      results = await responses.find({survey_id: {$in: relevant_surveys}}).toArray();
+      console.log(results);
+
+      client.close();
+
+      res.status(200).json({
+        status: "ok",
+        responses: results
+      });
+    });
+  }
+  catch (error) {
+    console.error(error.message);
+  }
+})
 
 
 app.get('/', (req, res) => res.send('Express + TypeScript Server'));
