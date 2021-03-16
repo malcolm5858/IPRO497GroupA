@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Search } from "semantic-ui-react";
 import { TestContent } from "../Components/TestContent";
 import _ from "lodash";
+import { TeacherRatings } from "./TeacherRatings";
 
 var mounted = false;
 interface hState {
@@ -73,7 +74,7 @@ export default class Home extends Component {
             }}
           />
         </div>
-        <TestContent />
+        <TeacherRatings professor_id="60510944bb729c5f71c95714" professor_name="Bob" />
       </div>
     );
   }

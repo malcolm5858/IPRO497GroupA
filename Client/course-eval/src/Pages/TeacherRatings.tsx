@@ -21,7 +21,8 @@ export function TeacherRatings(props: any) {
     return (
         <>
             <h1 className="align-center" >{professor_name}</h1>
-            <Rating size={200} rating={arrAvg(ratings.map((a: {professor_rating : number}) => a.professor_rating))} />
+            {/* <Rating size={200} rating={arrAvg(ratings.map((a: {professor_rating : number}) => a.professor_rating))} /> */}
+            <Rating size={200} rating={4.6} />
         </>
     )
 }
