@@ -3,7 +3,7 @@ import { Survey } from "./Components/Survey";
 import { Home } from "./Pages/Home";
 
 function App() {
-  return <Survey />;
+  return <Home />;
 }
 
 export default App;

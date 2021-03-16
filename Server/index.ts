@@ -101,6 +101,8 @@ app.get("/teacherNames", async (req, res) => {
 
       results = await professors.find({}).toArray();
 
+      const arr = results;
+      arr.forEach((obj: any) => renameKey(obj, "professor_name", "title"));
       console.log(results);
 
       client.close();
@@ -119,3 +121,8 @@ app.get("/", (req, res) => res.send("Express + TypeScript Server"));
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
 });
+
+function renameKey(obj: any, oldKey: any, newKey: any) {
+  obj[newKey] = obj[oldKey];
+  delete obj[oldKey];
+}

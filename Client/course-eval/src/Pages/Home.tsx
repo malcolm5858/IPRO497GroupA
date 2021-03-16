@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Search } from "semantic-ui-react";
 import { TestContent } from "../Components/TestContent";
-import faker from "faker";
 import _ from "lodash";
-
-const source = _.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, "$"),
-}));
 
 interface hState {
   loading: boolean;
   results: [];
   value: string;
+}
+
+interface Professor {
+  _id: String;
+  title: String;
 }
 
 const initialState: hState = {
@@ -41,6 +38,18 @@ function reducer(state: hState, action: any) {
 export function Home() {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { loading, results, value } = state;
+  const [source, setSource] = useState<Professor>();
+
+  useEffect(() => {
+    fetch("http://localhost:8000/teacherNames")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        setSource(data.responses);
+        console.log("Source: " + JSON.stringify(source));
+      });
+  });
 
   const timeoutRef: any = React.useRef();
   const handleSearchChange = React.useCallback((e, data) => {
@@ -65,7 +74,7 @@ export function Home() {
     }, 300);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       clearTimeout(timeoutRef.current);
     };
