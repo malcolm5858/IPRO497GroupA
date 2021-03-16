@@ -12,8 +12,8 @@
     fill: none;
 }
 .svg-circle-text {
-   font-size: 2rem;
+   font-size: 4rem;
     text-anchor: middle;
-    fill: #fff;
+    fill: #000000;
     font-weight: bold;
 }
