@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import { Search } from "semantic-ui-react";
 import { TestContent } from "../Components/TestContent";
 import _ from "lodash";
+
 var mounted = false;
 interface hState {
-  loading: boolean;
+  isLoading: boolean;
   results: [];
   value: string;
+  dataFromApi: any;
 }
 
 interface Professor {
@@ -15,97 +17,64 @@ interface Professor {
 }
 
 const initialState: hState = {
-  loading: false,
+  isLoading: false,
   results: [],
   value: "",
+  dataFromApi: null,
 };
+export default class Home extends Component {
+  state = initialState;
 
-function reducer(state: hState, action: any) {
-  switch (action.type) {
-    case "CLEAN_QUERY":
-      return initialState;
-    case "START_SEARCH":
-      return { ...state, loading: true, value: action.query };
-    case "FINISH_SEARCH":
-      return { ...state, loading: false, results: action.results };
-    case "UPDATE_SELECTION":
-      return { ...state, value: action.selection };
-    default:
-      throw new Error();
+  async componentDidMount() {
+    const response = await fetch("http://localhost:8000/teacherNames");
+    const data = await response.json();
+    this.setState({ dataFromApi: data });
+    console.log(response);
   }
-}
 
-export function Home() {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  const { loading, results, value } = state;
-  const [source, setSource] = useState();
+  handleResultSelect = (e: any, { result }: any) =>
+    this.setState({ value: result.title });
 
-  useEffect(() => {
-    if (!mounted) {
-      fetch("http://localhost:8000/teacherNames")
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          setSource(data.responses);
-          console.log("DATA");
-        });
-    }
-    mounted = true;
-  });
+  handleSearchChange = (e: any, { value }: any) => {
+    this.setState({ isLoading: true, value });
 
-  const timeoutRef: any = React.useRef();
-  const handleSearchChange = React.useCallback((e, data) => {
-    clearTimeout(timeoutRef.current);
-    dispatch({ type: "START_SEARCH", query: data.value });
+    setTimeout(() => {
+      if (this.state.value.length < 1)
+        return this.setState({ isLoading: false, results: [], value: "" });
 
-    timeoutRef.current = setTimeout(() => {
-      if (data.value.length === 0) {
-        dispatch({ type: "CLEAN_QUERY" });
-        return;
-      }
-
-      const re = new RegExp(_.escapeRegExp(data.value), "i");
-      //TODO: change this at some point
+      const re = new RegExp(_.escapeRegExp(this.state.value), "i");
       const isMatch = (result: any) => re.test(result.title);
-      dispatch({
-        type: "FINISH_SEARCH",
-        //source is the data is looking through
-        results: _.filter(source, isMatch),
+
+      this.setState({
+        isLoading: false,
+        results: _.filter(this.state.dataFromApi.responses, isMatch),
       });
     }, 300);
-  }, []);
+  };
 
-  useEffect(() => {
-    return () => {
-      clearTimeout(timeoutRef.current);
-    };
-  }, []);
+  render() {
+    const { isLoading, value, results, dataFromApi } = this.state;
 
-  return (
-    <div>
+    return (
       <div>
-        <Search
-          loading={loading}
-          onResultSelect={(e, data: any) =>
-            dispatch({
-              type: "UPDATE_SELECTION",
-              selection: data.results.title,
-            })
-          }
-          aligned="right"
-          onSearchChange={handleSearchChange}
-          results={results}
-          value={value}
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingTop: "20px",
-            paddingRight: "20px",
-          }}
-        />
+        <div>
+          <Search
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            aligned="right"
+            onSearchChange={this.handleSearchChange}
+            results={results}
+            value={value}
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              paddingTop: "20px",
+              paddingRight: "20px",
+            }}
+          />
+        </div>
+        <TestContent />
       </div>
-      <TestContent />
-    </div>
-  );
+    );
+  }
 }
