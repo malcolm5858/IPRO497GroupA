@@ -103,7 +103,7 @@ app.get("/teacherNames", async (req, res) => {
 
       const arr = results;
       arr.forEach((obj: any) => renameKey(obj, "professor_name", "title"));
-      console.log(results);
+      //console.log(results);
 
       client.close();
 

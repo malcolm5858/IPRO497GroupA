@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Search } from "semantic-ui-react";
 import { TestContent } from "../Components/TestContent";
 import _ from "lodash";
-
+var mounted = false;
 interface hState {
   loading: boolean;
   results: [];
@@ -38,17 +38,20 @@ function reducer(state: hState, action: any) {
 export function Home() {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { loading, results, value } = state;
-  const [source, setSource] = useState<Professor>();
+  const [source, setSource] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8000/teacherNames")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        setSource(data.responses);
-        console.log("Source: " + JSON.stringify(source));
-      });
+    if (!mounted) {
+      fetch("http://localhost:8000/teacherNames")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          setSource(data.responses);
+          console.log("DATA");
+        });
+    }
+    mounted = true;
   });
 
   const timeoutRef: any = React.useRef();
@@ -65,7 +68,6 @@ export function Home() {
       const re = new RegExp(_.escapeRegExp(data.value), "i");
       //TODO: change this at some point
       const isMatch = (result: any) => re.test(result.title);
-
       dispatch({
         type: "FINISH_SEARCH",
         //source is the data is looking through
