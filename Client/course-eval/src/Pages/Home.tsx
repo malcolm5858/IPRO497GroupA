@@ -21,16 +21,28 @@ const initialState: hState = {
   isLoading: false,
   results: [],
   value: "",
-  dataFromApi: null,
+  dataFromApi: {},
 };
 export default class Home extends Component {
-  state = initialState;
+  state: hState = initialState;
 
   async componentDidMount() {
     const response = await fetch("http://localhost:8000/teacherNames");
     const data = await response.json();
     this.setState({ dataFromApi: data });
     console.log(response);
+  }
+
+  handleSearchSubmit(event: any) {
+    event.preventDefault();
+    var objForSearch: never[] = [];
+    const data = _.entries(this.state.dataFromApi.responses);
+
+    data.forEach((obj: any) => {
+      if (obj[1]["title"] === this.state.value) {
+        objForSearch = obj[1];
+      }
+    });
   }
 
   handleResultSelect = (e: any, { result }: any) =>
@@ -59,20 +71,23 @@ export default class Home extends Component {
     return (
       <div>
         <div>
-          <Search
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            aligned="right"
-            onSearchChange={this.handleSearchChange}
-            results={results}
-            value={value}
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              paddingTop: "20px",
-              paddingRight: "20px",
-            }}
-          />
+          <form onSubmit={this.handleSearchSubmit.bind(this)}>
+            <Search
+              type="search"
+              loading={isLoading}
+              onResultSelect={this.handleResultSelect}
+              aligned="right"
+              onSearchChange={this.handleSearchChange}
+              results={results}
+              value={value}
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                paddingTop: "20px",
+                paddingRight: "20px",
+              }}
+            />
+          </form>
         </div>
         <TeacherRatings professor_id="0976f0a9cb65" professor_name="Anuj Chaos" />
       </div>
