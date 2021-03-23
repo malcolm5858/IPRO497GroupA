@@ -74,7 +74,7 @@ export default class Home extends Component {
             }}
           />
         </div>
-        <TeacherRatings professor_id="60510944bb729c5f71c95714" professor_name="Bob" />
+        <TeacherRatings professor_id="0976f0a9cb65" professor_name="Anuj Chaos" />
       </div>
     );
   }
