@@ -37,7 +37,7 @@ const Rating = (props: any) => {
                     strokeDashoffset={offset}
                 />
 
-                <text className="svg-circle-text" x={`${center}`} y={`${center}`}>{rating.toFixed(1)}</text>
+                <text className="svg-circle-text" style={{fontSize: (size / 4)}} x={`${center}`} y={`${center + (size / 16)}`}>{rating.toFixed(1)}</text>
             </svg>
         </Fragment>
     );
