@@ -1,0 +1,154 @@
+
+{
+    "course_held_1": {
+        "_id":{"$oid":"1cfa894aa6bd"},
+        "professor_id": "af378e279b5b",
+        "course_id": "ab672c2080e5",
+        "semester": "Fall 2019"
+    },
+
+
+    "course_held_2": {
+        "_id":{"$oid":"498deb4061bc"},
+        "professor_id": "55ed619e0a34",
+        "course_id": "e6d1967b1800",
+        "semester": "Spring 2019"
+    },
+    "course_held_3": {
+        "_id":{"$oid":"771c26856b4a"},
+        "professor_id": "55ed619e0a34",
+        "course_id": "2c85b6def056",
+        "semester": "Spring 2019"
+    },
+
+
+    "course_held_4": {
+        "_id":{"$oid":"ec46ef790dc3"},
+        "professor_id": "c261cbdcc227",
+        "course_id": "aa1b9fe9340e",
+        "semester": "Fall 2019"
+    },
+    "course_held_5": {
+        "_id":{"$oid":"e244284afa01"},
+        "professor_id": "c261cbdcc227",
+        "course_id": "62b6a9d249cd",
+        "semester": "Spring 2019"
+    },
+
+
+    "course_held_6": {
+        "_id":{"$oid":"20386edab081"},
+        "professor_id": "6a08acf30ee9",
+        "course_id": "fb57e4d22a5e",
+        "semester": "Spring 2019"
+    },
+    "course_held_7": {
+        "_id":{"$oid":"8fabba259b5f"},
+        "professor_id": "32304383a60e",
+        "course_id": "fb57e4d22a5e",
+        "semester": "Fall 2019"
+    },
+
+
+    "course_held_8": {
+        "_id":{"$oid":"185538d5eec9"},
+        "professor_id": "d5fc165fe9fe",
+        "course_id": "24155a88b542",
+        "semester": "Fall 2019"
+    },
+    "course_held_9": {
+        "_id":{"$oid":"b0bd055633ee"},
+        "professor_id": "19dd891eae38",
+        "course_id": "24155a88b542",
+        "semester": "Fall 2019"
+    },
+
+
+    "course_held_10": {
+        "_id":{"$oid":"3a1f67589802"},
+        "professor_id": "79279111c02d",
+        "course_id": "fda74a2c3afc",
+        "semester": "Fall 2019"
+    },
+    "course_held_11": {
+        "_id":{"$oid":"00e42eeaea4d"},
+        "professor_id": "79279111c02d",
+        "course_id": "fda74a2c3afc",
+        "semester": "Fall 2019"
+    },
+
+
+    "course_held_12": {
+        "_id":{"$oid":"e8fa0efd0888"},
+        "professor_id": "0976f0a9cb65",
+        "course_id": "38b9bece1256",
+        "semester": "Fall 2019"
+    },
+    "course_held_13": {
+        "_id":{"$oid":"630c39679c98"},
+        "professor_id": "0976f0a9cb65",
+        "course_id": "38b9bece1256",
+        "semester": "Spring 2019"
+    },
+    "course_held_14": {
+        "_id":{"$oid":"c4cb8a239862"},
+        "professor_id": "0976f0a9cb65",
+        "course_id": "38b9bece1256",
+        "semester": "Fall 2018"
+    },
+    "course_held_15": {
+        "_id":{"$oid":"08526a68a242"},
+        "professor_id": "0976f0a9cb65",
+        "course_id": "38b9bece1256",
+        "semester": "Fall 2018"
+    },
+    "course_held_16": {
+        "_id":{"$oid":"90b38abec283"},
+        "professor_id": "0976f0a9cb65",
+        "course_id": "05aefd652397",
+        "semester": "Fall 2019"
+    },
+    "course_held_17": {
+        "_id":{"$oid":"03692b137087"},
+        "professor_id": "0976f0a9cb65",
+        "course_id": "05aefd652397",
+        "semester": "Fall 2018"
+    },
+
+    "course_held_18": {
+        "_id":{"$oid":"570d572f2470"},
+        "professor_id": "71fbad435cd7",
+        "course_id": "38b9bece1256",
+        "semester": "Fall 2019"
+    },
+    "course_held_19": {
+        "_id":{"$oid":"720bf7ca6b38"},
+        "professor_id": "71fbad435cd7",
+        "course_id": "38b9bece1256",
+        "semester": "Spring 2019"
+    },
+    "course_held_20": {
+        "_id":{"$oid":"d10ad594e245"},
+        "professor_id": "71fbad435cd7",
+        "course_id": "af079782c915",
+        "semester": "Fall 2018"
+    },
+    "course_held_21": {
+        "_id":{"$oid":"45fc70bfecf6"},
+        "professor_id": "71fbad435cd7",
+        "course_id": "38b9bece1256",
+        "semester": "Fall 2018"
+    },
+    "course_held_22": {
+        "_id":{"$oid":"b950eb0af6e3"},
+        "professor_id": "71fbad435cd7",
+        "course_id": "af079782c915",
+        "semester": "Fall 2019"
+    },
+    "course_held_23": {
+        "_id":{"$oid":"83c590b54af9"},
+        "professor_id": "71fbad435cd7",
+        "course_id": "05aefd652397",
+        "semester": "Fall 2018"
+    }
+}
