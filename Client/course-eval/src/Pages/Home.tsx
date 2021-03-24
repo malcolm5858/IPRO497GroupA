@@ -10,6 +10,7 @@ interface hState {
   results: [];
   value: string;
   dataFromApi: any;
+  userToUse: any;
 }
 
 interface Professor {
@@ -22,6 +23,7 @@ const initialState: hState = {
   results: [],
   value: "",
   dataFromApi: {},
+  userToUse: { _id: "0976f0a9cb65", title: "Anuj Chaos" },
 };
 export default class Home extends Component {
   state: hState = initialState;
@@ -42,6 +44,7 @@ export default class Home extends Component {
       if (obj[1]["title"] === this.state.value) {
         objForSearch = obj[1];
       }
+      this.setState({ userToUse: objForSearch });
     });
   }
 
@@ -89,7 +92,10 @@ export default class Home extends Component {
             />
           </form>
         </div>
-        <TeacherRatings professor_id="0976f0a9cb65" professor_name="Anuj Chaos" />
+        <TeacherRatings
+          professor_id={this.state.userToUse._id}
+          professor_name={this.state.userToUse.title}
+        />
       </div>
     );
   }

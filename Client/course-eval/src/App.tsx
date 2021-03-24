@@ -1,4 +1,5 @@
 import React from "react";
+import { HistogramWithData } from "./Components/HistogramWithData";
 import { Survey } from "./Components/Survey";
 import Home from "./Pages/Home";
 import { TeacherRatings } from "./Pages/TeacherRatings";
