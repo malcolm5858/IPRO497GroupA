@@ -89,20 +89,32 @@ app.get("/teacherResults/:prof_id", async (req, res) => {
   }
 });
 
-app.get("/teacherNames", async (req, res) => {
+app.get("/search", async (req, res) => {
   try {
-    var results;
+    var professorResults;
+    var courseResults;
 
     MongoClient.connect(db_url, async function (err: any, client: any) {
       assert.equal(null, err);
 
       const db = client.db(db_name);
       const professors = db.collection("Professors");
+      const courses = db.collection("Courses");
 
-      results = await professors.find({}).toArray();
+      professorResults = await professors.find({}).toArray();
+      courseResults = await courses.find({}).toArray();
 
-      const arr = results;
+      const arr = professorResults;
+      const arr2 = courseResults;
       arr.forEach((obj: any) => renameKey(obj, "professor_name", "title"));
+      arr.forEach((obj: any) => (obj.type = "professor"));
+      //arr2.forEach((obj: any) => renameKey(obj, "course_number", "title"));
+      arr2.forEach(
+        (obj: any) => (obj.title = obj.department + " " + obj.course_number)
+      );
+      arr2.forEach((obj: any) => (obj.type = "course"));
+
+      const results = professorResults.concat(courseResults);
       console.log(results);
 
       client.close();
