@@ -4,8 +4,10 @@ import { HistogramWithData } from "./Components/HistogramWithData";
 import { Survey } from "./Components/Survey";
 import Home from "./Pages/Home";
 import { TeacherRatings } from "./Pages/TeacherRatings";
+import { CourseRatings } from "./Pages/CourseRatings";
 
 function App() {
+
   return (
     <Router>
       <Switch>

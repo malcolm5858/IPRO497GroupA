@@ -89,6 +89,111 @@ app.get("/teacherResults/:prof_id", async (req, res) => {
   }
 });
 
+app.get("/classResults/:class_id", async (req, res) => {
+  try {
+    const { class_id } = req.params;
+    var relevant_professors;
+
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+
+      const db = client.db(db_name);
+      const courses_held = db.collection("Courses_held");
+      const professors = db.collection("Professors");
+
+      const relevant_courses_held = (
+        await courses_held
+          .find({ course_id: new ObjectId(class_id) })
+          .toArray()
+      ).map((a: any) => a._id);
+      console.log(relevant_courses_held);
+
+      relevant_professors = await professors
+          .find({ professor_id: { $in: relevant_courses_held } })
+          .toArray()
+      console.log(relevant_professors);
+
+      client.close();
+
+      res.status(200).json({
+        status: "ok",
+        responses: relevant_professors,
+      });
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+app.get("/classResults/:class_id/:professor_id", async (req, res) => {
+  try {
+    const { class_id,professor_id  } = req.params;
+    var relevant_courses_held;
+
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+
+      const db = client.db(db_name);
+      const courses_held = db.collection("Courses_held");
+
+      relevant_courses_held = 
+        await courses_held
+          .find({ course_id: new ObjectId(class_id), professor_id: new ObjectId(professor_id) })
+          .toArray()
+      console.log(relevant_courses_held);
+
+      client.close();
+
+      res.status(200).json({
+        status: "ok",
+        responses: relevant_courses_held,
+      });
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+app.get("/classResults/:courses_held_id", async (req, res) => {
+  try {
+    const { courses_held_id } = req.params;
+    var results;
+
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+
+      const db = client.db(db_name);
+      const surveys = db.collection("Surveys");
+      const responses = db.collection("Responses");
+
+      const relevant_surveys = (
+        await surveys
+          .find({ course_held_id: { $in: courses_held_id } })
+          .toArray()
+      ).map((a: any) => a._id);
+      console.log(relevant_surveys);
+      results = await responses
+        .find({ survey_id: { $in: relevant_surveys } })
+        .toArray();
+      console.log(results);
+
+      client.close();
+
+      res.status(200).json({
+        status: "ok",
+        responses: results,
+      });
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+
+
+
+
+
 app.get("/search", async (req, res) => {
   try {
     var professorResults;

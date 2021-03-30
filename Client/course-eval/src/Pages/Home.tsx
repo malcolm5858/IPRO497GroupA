@@ -3,6 +3,7 @@ import { Search } from "semantic-ui-react";
 import { TestContent } from "../Components/TestContent";
 import _ from "lodash";
 import { TeacherRatings } from "./TeacherRatings";
+import { CourseRatings } from "./CourseRatings";
 
 var mounted = false;
 interface hState {
