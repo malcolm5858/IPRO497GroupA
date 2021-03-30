@@ -24,13 +24,13 @@ const initialState: hState = {
   results: [],
   value: "",
   dataFromApi: {},
-  userToUse: { _id: "0976f0a9cb65", title: "Anuj Chaos" },
+  userToUse: { _id: "0976f0a9cb65", title: "Anuj Chaos", type: "professor" },
 };
 export default class Home extends Component {
   state: hState = initialState;
 
   async componentDidMount() {
-    const response = await fetch("http://localhost:8000/teacherNames");
+    const response = await fetch("http://localhost:8000/search");
     const data = await response.json();
     this.setState({ dataFromApi: data });
     console.log(response);
@@ -72,6 +72,20 @@ export default class Home extends Component {
   render() {
     const { isLoading, value, results, dataFromApi } = this.state;
 
+    const page = () => {
+      switch (this.state.userToUse.type) {
+        case "professor":
+          return (
+            <TeacherRatings
+              professor_id={this.state.userToUse._id}
+              professor_name={this.state.userToUse.title}
+            />
+          );
+        case "course":
+          return <h1>{this.state.userToUse.title}</h1>;
+      }
+    };
+
     return (
       <div>
         <div>
@@ -93,10 +107,7 @@ export default class Home extends Component {
             />
           </form>
         </div>
-        <TeacherRatings
-          professor_id={this.state.userToUse._id}
-          professor_name={this.state.userToUse.title}
-        />
+        {page()}
       </div>
     );
   }
