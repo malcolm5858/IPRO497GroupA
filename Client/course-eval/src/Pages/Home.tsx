@@ -82,7 +82,13 @@ export default class Home extends Component {
             />
           );
         case "course":
-          return <h1>{this.state.userToUse.title}</h1>;
+          return (
+            <CourseRatings
+              course_id={this.state.userToUse._id}
+              department={this.state.userToUse.department}
+              course_number={this.state.userToUse.course_number}
+            />
+          );
       }
     };
 
