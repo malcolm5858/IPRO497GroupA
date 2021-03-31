@@ -1,29 +1,41 @@
-import React, {useEffect} from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Rating from './Rating';
-import GridGenerator from './GridGenerator';
+import React, { useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Rating from "./Rating";
+import GridGenerator from "./GridGenerator";
 
-const RatingBreakdown = (props: any) => {
-    const { ratings } = props;
+interface Props {
+  ratings: { rating: number; description: string }[];
+  sendData: Function;
+}
 
-    useEffect(() => {
-        console.log(ratings);
-    }, []);
+const RatingBreakdown = (props: Props) => {
+  const { ratings, sendData } = props;
 
-    return (
-        <>
-            <Container>
-                <Row>
-                    {ratings.map((r: any) => (
-                        <Col>
-                            <Rating size={100} rating={r.rating} />
-                            <p style={{textAlign: 'center', fontSize: 24}}>{r.description}</p>
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
+  useEffect(() => {
+    console.log(ratings);
+  }, []);
 
-            {/* <GridGenerator cols={6}>
+  return (
+    <>
+      <Container>
+        <Row>
+          {ratings.map((r: any) => (
+            <Col>
+              <Rating
+                size={100}
+                rating={r.rating}
+                description={r.description}
+                sendData={sendData}
+              />
+              <p style={{ textAlign: "center", fontSize: 24 }}>
+                {r.description}
+              </p>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+      {/* <GridGenerator cols={6}>
                 {ratings.map((r : any) => {
                     <Container>
                         <Row>
@@ -35,8 +47,8 @@ const RatingBreakdown = (props: any) => {
                     </Container>
                 })}
             </GridGenerator> */}
-        </>
-    )
-}
+    </>
+  );
+};
 
 export default RatingBreakdown;

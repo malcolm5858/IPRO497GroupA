@@ -22,6 +22,10 @@ export function TeacherRatings(props: any) {
   const arrAvg = (arr: number[]) =>
     arr.reduce((a: number, b: number) => a + b, 0) / arr.length;
 
+  const clickData = (description: string) => {
+    console.log(description);
+  };
+
   const getRatings = async () => {
     try {
       const response = await fetch(
@@ -49,14 +53,19 @@ export function TeacherRatings(props: any) {
               {professor_name}
             </p>
             {/* <Rating size={200} rating={arrAvg(ratings.map((a: {professor_rating : number}) => a.professor_rating))} /> */}
-            <Rating size={200} rating={4.6} />
+            <Rating
+              size={200}
+              rating={4.6}
+              sendData={clickData}
+              description={"Test"}
+            />
             <p style={{ textAlign: "center", fontSize: 24 }}>Overall Rating</p>
           </Col>
         </Row>
         <Row className="mt-5">
           <Col>
             <h2 style={{ textAlign: "center" }}>Course Breakdown:</h2>
-            <RatingBreakdown ratings={breakdown} />
+            <RatingBreakdown ratings={breakdown} sendData={clickData} />
           </Col>
         </Row>
 

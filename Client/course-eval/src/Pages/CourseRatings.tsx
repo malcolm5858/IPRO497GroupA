@@ -4,14 +4,10 @@ import { HistogramWithData } from "../Components/HistogramWithData";
 import Rating from "../Components/Rating";
 import RatingBreakdown from "../Components/RatingBreakdown";
 
-
-
-
 // interface cState {
 //   per_course: [];
 //   prof_classes: [];
 //   course_ratings: [];
-
 
 // }
 // const initial_state: cState ={
@@ -20,7 +16,7 @@ import RatingBreakdown from "../Components/RatingBreakdown";
 //   course_ratings = []
 // };
 export function CourseRatings(props: any) {
-  const { course_id, department, course_number} = props;
+  const { course_id, department, course_number } = props;
 
   // const [breakdown, setBreakdown] = useState([]);
   const breakdown = [
@@ -37,23 +33,10 @@ export function CourseRatings(props: any) {
   const arrAvg = (arr: number[]) =>
     arr.reduce((a: number, b: number) => a + b, 0) / arr.length;
 
-    const getProfessorsPerCourse = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:8000/classResults/${course_id}`
-        );
-        const jsonData = await response.json();
-  
-        setRatings(jsonData.responses);
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
-  
-  const getClassHeldInfoPerProfessor = async (professor_id:any) => {
+  const getProfessorsPerCourse = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8000/classResults/${course_id/professor_id}`
+        `http://localhost:8000/classResults/${course_id}`
       );
       const jsonData = await response.json();
 
@@ -63,7 +46,20 @@ export function CourseRatings(props: any) {
     }
   };
 
-  const getClassProfessorRatings = async (courses_held_id:any) => {
+  const getClassHeldInfoPerProfessor = async (professor_id: any) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/classResults/${course_id / professor_id}`
+      );
+      const jsonData = await response.json();
+
+      setRatings(jsonData.responses);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const getClassProfessorRatings = async (courses_held_id: any) => {
     try {
       const response = await fetch(
         `http://localhost:8000/classResults/${courses_held_id}`
@@ -74,6 +70,10 @@ export function CourseRatings(props: any) {
     } catch (err) {
       console.error(err.message);
     }
+  };
+
+  const clickData = (description: string) => {
+    console.log(description);
   };
 
   //useEffect(() => {
@@ -92,14 +92,19 @@ export function CourseRatings(props: any) {
               {course_number}
             </p>
             {/* <Rating size={200} rating={arrAvg(ratings.map((a: {professor_rating : number}) => a.professor_rating))} /> */}
-            <Rating size={200} rating={4.6} />
+            <Rating
+              size={200}
+              rating={4.6}
+              sendData={clickData}
+              description={"Test"}
+            />
             <p style={{ textAlign: "center", fontSize: 24 }}>Overall Rating</p>
           </Col>
         </Row>
         <Row className="mt-5">
           <Col>
             <h2 style={{ textAlign: "center" }}>Profesor Breakdown:</h2>
-            <RatingBreakdown ratings={breakdown} />
+            <RatingBreakdown ratings={breakdown} sendData={clickData} />
           </Col>
         </Row>
 
