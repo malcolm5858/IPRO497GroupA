@@ -1,117 +1,421 @@
 {
     "surveys_1": {
-        "_id":{"$oid":"f58b3cf7f999"},
-        "course_held_id": "1cfa894aa6bd",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "f58b3cf7f999"
+        },
+        "professor_id": {
+            "$oid": "af378e279b5b"
+        },
+        "professor_name": "Carlene Rivera",
+        "course_id": {
+            "$oid": "ab672c2080e5"
+        },
+        "course_number": "474",
+        "semester": "Fall 2019",
+        "course_department": "Math",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_2": {
-        "_id":{"$oid":"7f4f968b4048"},
-        "course_held_id": "498deb4061bc",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?"]
+        "_id": {
+            "$oid": "7f4f968b4048"
+        },
+        "professor_id": {
+            "$oid": "55ed619e0a34"
+        },
+        "professor_name": "Jennifer Damaskinos",
+        "course_id": {
+            "$oid": "e6d1967b1800"
+        },
+        "course_number": "151",
+        "semester": "Spring 2019",
+        "course_department": "Math",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?"
+        ]
     },
     "surveys_3": {
-        "_id":{"$oid":"1149702cf225"},
-        "course_held_id": "771c26856b4a",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "1149702cf225"
+        },
+        "professor_id": {
+            "$oid": "55ed619e0a34"
+        },
+        "professor_name": "Jennifer Damaskinos",
+        "course_id": {
+            "$oid": "2c85b6def056"
+        },
+        "course_number": "152",
+        "semester": "Spring 2019",
+        "course_department": "Math",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_4": {
-        "_id":{"$oid":"a65bea4aa69a"},
-        "course_held_id": "ec46ef790dc3",
-        "Professor_made_questions":[]
+        "_id": {
+            "$oid": "a65bea4aa69a"
+        },
+        "professor_id": {
+            "$oid": "c261cbdcc227"
+        },
+        "professor_name": "Mary Sanders",
+        "course_id": {
+            "$oid": "aa1b9fe9340e"
+        },
+        "course_number": "485",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": []
     },
     "surveys_5": {
-        "_id":{"$oid":"61a300206864"},
-        "course_held_id": "e244284afa01",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?", "Were the youtube videos helpful?"]
+        "_id": {
+            "$oid": "61a300206864"
+        },
+        "professor_id": {
+            "$oid": "c261cbdcc227"
+        },
+        "professor_name": "Mary Sanders",
+        "course_id": {
+            "$oid": "62b6a9d249cd"
+        },
+        "course_number": "487",
+        "semester": "Spring 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?",
+            "Were the youtube videos helpful?"
+        ]
     },
     "surveys_6": {
-        "_id":{"$oid":"af3533b468f6"},
-        "course_held_id": "20386edab081",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
-    },
-    "surveys_7": {
-        "_id":{"$oid":"06010513a510"},
-        "course_held_id": "8fabba259b5f",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?"]
+        "_id": {
+            "$oid": "af3533b468f6"
+        },
+        "professor_id": {
+            "$oid": "6a08acf30ee9"
+        },
+        "professor_name": "Cliff Phelps",
+        "course_id": {
+            "$oid": "fb57e4d22a5e"
+        },
+        "course_number": "422",
+        "semester": "Spring 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_8": {
-        "_id":{"$oid":"a058a426a7fd"},
-        "course_held_id": "185538d5eec9",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "a058a426a7fd"
+        },
+        "professor_id": {
+            "$oid": "d5fc165fe9fe"
+        },
+        "professor_name": "Sebastian Glass",
+        "course_id": {
+            "$oid": "24155a88b542"
+        },
+        "course_number": "480",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
+    },
+    "surveys_7": {
+        "_id": {
+            "$oid": "06010513a510"
+        },
+        "professor_id": {
+            "$oid": "32304383a60e"
+        },
+        "professor_name": "Josephe Collins",
+        "course_id": {
+            "$oid": "fb57e4d22a5e"
+        },
+        "course_number": "422",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?"
+        ]
     },
     "surveys_9": {
-        "_id":{"$oid":"be452dab0e43"},
-        "course_held_id": "b0bd055633ee",
-        "Professor_made_questions":[]
+        "_id": {
+            "$oid": "be452dab0e43"
+        },
+        "professor_id": {
+            "$oid": "19dd891eae38"
+        },
+        "professor_name": "Wilhelm Fallegeros",
+        "course_id": {
+            "$oid": "24155a88b542"
+        },
+        "course_number": "480",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": []
     },
     "surveys_10": {
-        "_id":{"$oid":"d2ffa2b441e7"},
-        "course_held_id": "3a1f67589802",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?", "Were the youtube videos helpful?"]
+        "_id": {
+            "$oid": "d2ffa2b441e7"
+        },
+        "professor_id": {
+            "$oid": "79279111c02d"
+        },
+        "professor_name": "Bob Winters",
+        "course_id": {
+            "$oid": "fda74a2c3afc"
+        },
+        "course_number": "450",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?",
+            "Were the youtube videos helpful?"
+        ]
     },
     "surveys_11": {
-        "_id":{"$oid":"24f17f5585cf"},
-        "course_held_id": "00e42eeaea4d",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "24f17f5585cf"
+        },
+        "professor_id": {
+            "$oid": "79279111c02d"
+        },
+        "professor_name": "Bob Winters",
+        "course_id": {
+            "$oid": "fda74a2c3afc"
+        },
+        "course_number": "450",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_12": {
-        "_id":{"$oid":"3181e938e701"},
-        "course_held_id": "e8fa0efd0888",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?"]
+        "_id": {
+            "$oid": "3181e938e701"
+        },
+        "professor_id": {
+            "$oid": "0976f0a9cb65"
+        },
+        "professor_name": "Anuj Chaos",
+        "course_id": {
+            "$oid": "38b9bece1256"
+        },
+        "course_number": "430",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?"
+        ]
     },
     "surveys_13": {
-        "_id":{"$oid":"75a5a7d9d45d"},
-        "course_held_id": "630c39679c98",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "75a5a7d9d45d"
+        },
+        "professor_id": {
+            "$oid": "0976f0a9cb65"
+        },
+        "professor_name": "Anuj Chaos",
+        "course_id": {
+            "$oid": "38b9bece1256"
+        },
+        "course_number": "430",
+        "semester": "Spring 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_14": {
-        "_id":{"$oid":"ffba13a07c72"},
-        "course_held_id": "c4cb8a239862",
-        "Professor_made_questions":[]
+        "_id": {
+            "$oid": "ffba13a07c72"
+        },
+        "professor_id": {
+            "$oid": "0976f0a9cb65"
+        },
+        "professor_name": "Anuj Chaos",
+        "course_id": {
+            "$oid": "38b9bece1256"
+        },
+        "course_number": "430",
+        "semester": "Fall 2018",
+        "course_department": "Computer Science",
+        "professor_made_questions": []
     },
     "surveys_15": {
-        "_id":{"$oid":"0d003d4bac22"},
-        "course_held_id": "08526a68a242",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?", "Were the youtube videos helpful?"]
+        "_id": {
+            "$oid": "0d003d4bac22"
+        },
+        "professor_id": {
+            "$oid": "0976f0a9cb65"
+        },
+        "professor_name": "Anuj Chaos",
+        "course_id": {
+            "$oid": "38b9bece1256"
+        },
+        "course_number": "430",
+        "semester": "Fall 2018",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?",
+            "Were the youtube videos helpful?"
+        ]
     },
     "surveys_16": {
-        "_id":{"$oid":"47a19a1a8c97"},
-        "course_held_id": "90b38abec283",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "47a19a1a8c97"
+        },
+        "professor_id": {
+            "$oid": "0976f0a9cb65"
+        },
+        "professor_name": "Anuj Chaos",
+        "course_id": {
+            "$oid": "05aefd652397"
+        },
+        "course_number": "440",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_17": {
-        "_id":{"$oid":"1b3c91baf453"},
-        "course_held_id": "03692b137087",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?"]
+        "_id": {
+            "$oid": "1b3c91baf453"
+        },
+        "professor_id": {
+            "$oid": "0976f0a9cb65"
+        },
+        "professor_name": "Anuj Chaos",
+        "course_id": {
+            "$oid": "05aefd652397"
+        },
+        "course_number": "440",
+        "semester": "Fall 2018",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?"
+        ]
     },
     "surveys_18": {
-        "_id":{"$oid":"8426e36fddc4"},
-        "course_held_id": "570d572f2470",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "8426e36fddc4"
+        },
+        "professor_id": {
+            "$oid": "71fbad435cd7"
+        },
+        "professor_name": "Alanis Regis",
+        "course_id": {
+            "$oid": "38b9bece1256"
+        },
+        "course_number": "430",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_19": {
-        "_id":{"$oid":"068470440b1a"},
-        "course_held_id": "720bf7ca6b38",
-        "Professor_made_questions":[]
+        "_id": {
+            "$oid": "068470440b1a"
+        },
+        "professor_id": {
+            "$oid": "71fbad435cd7"
+        },
+        "professor_name": "Alanis Regis",
+        "course_id": {
+            "$oid": "38b9bece1256"
+        },
+        "course_number": "430",
+        "semester": "Spring 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": []
     },
     "surveys_20": {
-        "_id":{"$oid":"1cbb9d4e369f"},
-        "course_held_id": "d10ad594e245",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?", "Were the youtube videos helpful?"]
+        "_id": {
+            "$oid": "1cbb9d4e369f"
+        },
+        "professor_id": {
+            "$oid": "71fbad435cd7"
+        },
+        "professor_name": "Alanis Regis",
+        "course_id": {
+            "$oid": "af079782c915"
+        },
+        "course_number": "442",
+        "semester": "Fall 2018",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?",
+            "Were the youtube videos helpful?"
+        ]
     },
     "surveys_21": {
-        "_id":{"$oid":"995856cdc212"},
-        "course_held_id": "45fc70bfecf6",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "995856cdc212"
+        },
+        "professor_id": {
+            "$oid": "71fbad435cd7"
+        },
+        "professor_name": "Alanis Regis",
+        "course_id": {
+            "$oid": "38b9bece1256"
+        },
+        "course_number": "430",
+        "semester": "Fall 2018",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     },
     "surveys_22": {
-        "_id":{"$oid":"7bd2ec7053cf"},
-        "course_held_id": "b950eb0af6e3",
-        "Professor_made_questions":["How was class over zoom format this semester?", "Is in-person learning helpful for you?"]
+        "_id": {
+            "$oid": "7bd2ec7053cf"
+        },
+        "professor_id": {
+            "$oid": "71fbad435cd7"
+        },
+        "professor_name": "Alanis Regis",
+        "course_id": {
+            "$oid": "af079782c915"
+        },
+        "course_number": "442",
+        "semester": "Fall 2019",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?",
+            "Is in-person learning helpful for you?"
+        ]
     },
     "surveys_23": {
-        "_id":{"$oid":"edeb64f014c7"},
-        "course_held_id": "83c590b54af9",
-        "Professor_made_questions":["How was class over zoom format this semester?"]
+        "_id": {
+            "$oid": "edeb64f014c7"
+        },
+        "professor_id": {
+            "$oid": "71fbad435cd7"
+        },
+        "professor_name": "Alanis Regis",
+        "course_id": {
+            "$oid": "05aefd652397"
+        },
+        "course_number": "440",
+        "semester": "Fall 2018",
+        "course_department": "Computer Science",
+        "professor_made_questions": [
+            "How was class over zoom format this semester?"
+        ]
     }
 }
