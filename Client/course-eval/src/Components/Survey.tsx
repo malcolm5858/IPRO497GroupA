@@ -6,8 +6,8 @@ import { useParams } from "react-router";
 import _ from "lodash";
 
 interface Values {
-  survey_id: number;
-  student_id: number;
+  survey_id: string;
+  student_id: string;
   professor_rating: number;
   prof_comments: string;
   class_rating: number;
@@ -25,8 +25,8 @@ export const Survey: React.FC = () => {
   let { studentId, name, surveyId, className } = useParams<RouteParams>();
 
   const initialValues: Values = {
-    survey_id: Number(surveyId),
-    student_id: Number(studentId),
+    survey_id: surveyId,
+    student_id: studentId,
     professor_rating: 0,
     class_rating: 0,
     prof_comments: "",

@@ -1,0 +1,77 @@
+{
+    "course_1": {
+        "_id":{"$oid":"ab672c2080e5"},
+        "department": "Math",
+        "course_number":"474"
+    },
+    "course_2": {
+        "_id":{"$oid":"e6d1967b1800"},
+        "department": "Math",
+        "course_number":"151"
+    },
+    "course_3": {
+        "_id":{"$oid":"2c85b6def056"},
+        "department": "Math",
+        "course_number":"152"
+    },
+    "course_4": {
+        "_id":{"$oid":"24155a88b542"},
+        "department": "Computer Science",
+        "course_number":"480"
+    },
+    "course_5": {
+        "_id":{"$oid":"6b1ace9fb92b"},
+        "department": "Computer Science",
+        "course_number":"484"
+    },
+    "course_6": {
+        "_id":{"$oid":"fb57e4d22a5e"},
+        "department": "Computer Science",
+        "course_number":"422"
+    },
+    "course_7": {
+        "_id":{"$oid":"fda74a2c3afc"},
+        "department": "Computer Science",
+        "course_number":"450"
+    },
+    "course_8": {
+        "_id":{"$oid":"0aaafe66b677"},
+        "department": "Computer Science",
+        "course_number":"451"
+    },
+    "course_9": {
+        "_id":{"$oid":"1d4938b182d8"},
+        "department": "Computer Science",
+        "course_number":"455"
+    },
+    "course_10": {
+        "_id":{"$oid":"0c191b4dff08"},
+        "department": "Computer Science",
+        "course_number":"458"
+    },
+    "course_11": {
+        "_id":{"$oid":"38b9bece1256"},
+        "department": "Computer Science",
+        "course_number":"430"
+    },
+    "course_12": {
+        "_id":{"$oid":"05aefd652397"},
+        "department": "Computer Science",
+        "course_number":"440"
+    },
+    "course_13": {
+        "_id":{"$oid":"af079782c915"},
+        "department": "Computer Science",
+        "course_number":"442"
+    },
+    "course_14": {
+        "_id":{"$oid":"aa1b9fe9340e"},
+        "department": "Computer Science",
+        "course_number":"485"
+    },
+    "course_15": {
+        "_id":{"$oid":"62b6a9d249cd"},
+        "department": "Computer Science",
+        "course_number":"487"
+    }
+}
