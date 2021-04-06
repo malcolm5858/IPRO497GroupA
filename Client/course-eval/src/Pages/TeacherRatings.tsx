@@ -6,12 +6,14 @@ import RatingBreakdown from "../Components/RatingBreakdown";
 
 interface teacherRatingsData {
   professor_name: String;
+  overall_rating: number;
   courseBreakdown: { rating: number; description: String }[];
   termBreakdown: { term: String; Rating: number }[];
 }
 
 const initialState: teacherRatingsData = {
   professor_name: "",
+  overall_rating: 0,
   courseBreakdown: [],
   termBreakdown: [],
 };
@@ -57,7 +59,7 @@ export function TeacherRatings(props: any) {
             {/* <Rating size={200} rating={arrAvg(ratings.map((a: {professor_rating : number}) => a.professor_rating))} /> */}
             <Rating
               size={200}
-              rating={4.6}
+              rating={data.overall_rating}
               sendData={clickData}
               description={"Test"}
             />

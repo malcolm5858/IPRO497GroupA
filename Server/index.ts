@@ -19,12 +19,14 @@ app.use(express.json());
 interface CourseRatingsData {
   department: String;
   courseNumber: number;
+  overall_rating: number;
   profBreakdown: { rating: number; description: String }[];
   termBreakdown: { term: String; Rating: number }[];
 }
 
 interface teacherRatingsData {
   professor_name: String;
+  overall_rating: number;
   courseBreakdown: { rating: number; description: String }[];
   termBreakdown: { term: String; Rating: number }[];
 }
@@ -32,11 +34,11 @@ interface teacherRatingsData {
 // ROUTES
 app.post("/surveyResponse", async (req, res) => {
   try {
-    console.log(req.body);
+    console.log(req.body.survey_id);
 
     MongoClient.connect(
       db_url,
-      function (
+      async function (
         err: any,
         client: { db: (arg0: string) => any; close: () => void }
       ) {
@@ -44,8 +46,28 @@ app.post("/surveyResponse", async (req, res) => {
         console.log("Connected successfully to server");
 
         const db = client.db(db_name);
+        const surveys = db.collection("Surveys");
+        const survey = await surveys.findOne({_id: ObjectId(req.body.survey_id)});
+        console.log(survey);
+
+        const data = {
+          professor_id: survey.professor_id,
+          professor_name: survey.professor_name,
+          course_id: survey.course_id,
+          course_department: survey.course_department,
+          course_number: survey.course_number,
+          semester: survey.semester,
+          survey_id: survey._id,
+          student_id: ObjectId(req.body.student_id),
+          professor_rating: req.body.professor_rating,
+          class_rating: req.body.class_rating,
+          default_questions_responses: req.body.default_questions_responses,
+          professor_made_questions: survey.professor_made_questions,
+          professor_made_questions_responses: req.body.professor_made_questions_responses
+        };
+
         const responses = db.collection("Responses");
-        responses.insertOne(req.body, function (err: any, result: any) {
+        responses.insertOne(data, function (err: any, result: any) {
           assert.equal(err, null);
         });
 
@@ -256,9 +278,7 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
       const courseResponse = await responses
         .find({ course_id: ObjectId(course_id) })
         .toArray();
-      console.log(courseResponse);
       const course = await courses.find({ _id: ObjectId(course_id) }).toArray();
-      console.log(course);
       client.close();
 
       const department = course[0].department;
@@ -272,30 +292,33 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
 
       courseResponse.forEach((element: any) => {
         var prof = element.professor_name;
-        console.log(element);
         var term = element.semester;
         if (profNames.length == 0 || profNames.indexOf(prof) == -1) {
           profNames.push(prof);
-          profRatings.push([element.professor_rating]);
+          profRatings.push([element.class_rating]);
         } else {
           const index = profNames.indexOf(prof);
           profRatings[index] = profRatings[index].concat([
-            element.professor_rating,
+            element.class_rating,
           ]);
         }
 
         if (termNames.length == 0 || termNames.indexOf(term) == -1) {
           termNames.push(term);
-          termRatings.push([element.professor_rating]);
+          termRatings.push([element.class_rating]);
         } else {
           const index = termNames.indexOf(term);
           termRatings[index] = termRatings[index].concat([
-            element.professor_rating,
+            element.class_rating,
           ]);
         }
       });
+
       let average = (array: any[]) =>
         Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
+      
+      var overall = average(courseResponse.map((a : any) => a.class_rating));
+
       for (var i = 0; i < profNames.length; i++) {
         profBreakdown[i] = {
           rating: average(profRatings[i]),
@@ -313,6 +336,7 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
       const data: CourseRatingsData = {
         department: department,
         courseNumber: courseNumber,
+        overall_rating: overall,
         profBreakdown: profBreakdown,
         termBreakdown: termBreakdown,
       };
@@ -339,7 +363,6 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
       const courseResponse = await responses
         .find({ professor_id: ObjectId(professor_id) })
         .toArray();
-      console.log(courseResponse);
       const professor = await professors
         .find({ _id: ObjectId(professor_id) })
         .toArray();
@@ -356,8 +379,7 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
       var termRatings: any[][] = [];
 
       courseResponse.forEach((element: any) => {
-        var course = element.professor_name;
-        console.log(element);
+        var course = element.course_department + " " + element.course_number;
         var term = element.semester;
         if (courseNames.length == 0 || courseNames.indexOf(course) == -1) {
           courseNames.push(course);
@@ -379,8 +401,12 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
           ]);
         }
       });
+      
       let average = (array: any[]) =>
         Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
+
+      var overall = average(courseResponse.map((a : any) => a.professor_rating));
+
       for (var i = 0; i < courseNames.length; i++) {
         courseBreakdown[i] = {
           rating: average(courseRatings[i]),
@@ -397,6 +423,7 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
 
       const data: teacherRatingsData = {
         professor_name: name,
+        overall_rating: overall,
         courseBreakdown: courseBreakdown,
         termBreakdown: termBreakdown,
       };

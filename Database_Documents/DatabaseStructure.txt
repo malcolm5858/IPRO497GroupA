@@ -3,6 +3,42 @@ Database: studentSurvey
 Collection: Professors
 Columns: _id, professor_name
 
+Collection: Courses
+Columns: _id, course_department, course_number
+
+Collection: Students
+Columns: _id, student_name
+
+Collection: Surveys
+Columns: _id, professor_id, professor_name, course_id, course_department, course_number, semester, professor_made_questions
+
+Collection: Responses
+Columns: 
+    _id,
+    professor_id,
+    professor_name,
+    course_id,
+    course_department,
+    course_number,
+    semester,
+    survey_id,
+    student_id,
+    professor_rating,
+    class_rating,
+    default_questions_responses,
+    professor_made_questions,
+    professor_made_questions_responses
+
+
+#######################################
+#                 OLD                 #
+#######################################
+
+Database: studentSurvey
+
+Collection: Professors
+Columns: _id, professor_name
+
 Collection: Surveys
 Columns: _id, course_held_id, professor_made_questions
 
@@ -17,11 +53,3 @@ Columns: _id, survey_id, student_id, professor_rating, class_rating, default_que
 
 Collection: Students
 Columns: _id, student_name
-
-
-
-
-
-
-
-
