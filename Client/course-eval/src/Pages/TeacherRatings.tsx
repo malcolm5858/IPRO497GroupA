@@ -67,14 +67,10 @@ export function TeacherRatings(props: any) {
         <Row className="mt-5">
           <Col>
             <h2 style={{ textAlign: "center" }}>Course Breakdown:</h2>
-<<<<<<< HEAD
             <RatingBreakdown
               ratings={data.courseBreakdown}
               sendData={clickData}
             />
-=======
-            <RatingBreakdown ratings={breakdown} sendData={clickData} />
->>>>>>> clickRatings
           </Col>
         </Row>
 

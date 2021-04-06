@@ -4,11 +4,7 @@ import Rating from "./Rating";
 import GridGenerator from "./GridGenerator";
 
 interface Props {
-<<<<<<< HEAD
   ratings: { rating: number; description: String }[];
-=======
-  ratings: { rating: number; description: string }[];
->>>>>>> clickRatings
   sendData: Function;
 }
 
