@@ -45,6 +45,7 @@ export default class Home extends Component {
       if (obj[1]["title"] === this.state.value) {
         objForSearch = obj[1];
       }
+      console.log("Change State");
       this.setState({ userToUse: objForSearch });
     });
   }

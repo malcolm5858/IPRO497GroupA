@@ -4,69 +4,33 @@ import { HistogramWithData } from "../Components/HistogramWithData";
 import Rating from "../Components/Rating";
 import RatingBreakdown from "../Components/RatingBreakdown";
 
-// interface cState {
-//   per_course: [];
-//   prof_classes: [];
-//   course_ratings: [];
+interface CourseRatingsData {
+  department: String;
+  courseNumber: number;
+  profBreakdown: { rating: number; description: String }[];
+  termBreakdown: { term: String; Rating: number }[];
+}
 
-// }
-// const initial_state: cState ={
-//   per_course = [],
-//   prof_classes= [],
-//   course_ratings = []
-// };
+const initial_state: CourseRatingsData = {
+  department: "",
+  courseNumber: 0,
+  profBreakdown: [],
+  termBreakdown: [],
+};
+
 export function CourseRatings(props: any) {
-  const { course_id, department, course_number } = props;
+  const { course_id } = props;
 
-  // const [breakdown, setBreakdown] = useState([]);
-  const breakdown = [
-    { rating: 4.5, description: "Proffessor Lee" },
-    { rating: 4.3, description: "Professor Bilgic" },
-    { rating: 1.5, description: "Professor Agams" },
-    { rating: 4.5, description: "Professor Sasaki" },
-    { rating: 2.5, description: "Professor Leung" },
-    { rating: 4.8, description: "Professor Yan" },
-    { rating: 4.5, description: "Professor Tannous" },
-  ];
+  const [data, setData] = useState(initial_state);
 
-  const [ratings, setRatings] = useState([]);
-  const arrAvg = (arr: number[]) =>
-    arr.reduce((a: number, b: number) => a + b, 0) / arr.length;
-
-  const getProfessorsPerCourse = async () => {
+  const getData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8000/classResults/${course_id}`
+        `http://localhost:8000/CourseRatings/${course_id}`
       );
       const jsonData = await response.json();
 
-      setRatings(jsonData.responses);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  const getClassHeldInfoPerProfessor = async (professor_id: any) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8000/classResults/${course_id / professor_id}`
-      );
-      const jsonData = await response.json();
-
-      setRatings(jsonData.responses);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  const getClassProfessorRatings = async (courses_held_id: any) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8000/classResults/${courses_held_id}`
-      );
-      const jsonData = await response.json();
-
-      setRatings(jsonData.responses);
+      setData(jsonData.responses);
     } catch (err) {
       console.error(err.message);
     }
@@ -76,11 +40,9 @@ export function CourseRatings(props: any) {
     console.log(description);
   };
 
-  //useEffect(() => {
-  //  var prof_per_coruse = await getProfessorsPerCourse();
-  //  var course_held_per_prof = await getClassHeldInfoPerProfessor(prof_per_coruse._id);
-  //  var prof_ratings = await getClassProfessorRatings(course_held_per_prof.);
-  //}, []);
+  useEffect(() => {
+    getData();
+  }, [props]);
 
   return (
     <>
@@ -89,7 +51,7 @@ export function CourseRatings(props: any) {
           <Col>
             <p
               style={{ fontSize: 40, fontWeight: "bold", textAlign: "center" }}>
-              {course_number}
+              {data.department + " " + data.courseNumber}
             </p>
             {/* <Rating size={200} rating={arrAvg(ratings.map((a: {professor_rating : number}) => a.professor_rating))} /> */}
             <Rating
@@ -104,7 +66,10 @@ export function CourseRatings(props: any) {
         <Row className="mt-5">
           <Col>
             <h2 style={{ textAlign: "center" }}>Profesor Breakdown:</h2>
-            <RatingBreakdown ratings={breakdown} sendData={clickData} />
+            <RatingBreakdown
+              ratings={data.profBreakdown}
+              sendData={clickData}
+            />
           </Col>
         </Row>
 
@@ -112,24 +77,7 @@ export function CourseRatings(props: any) {
           <Col>
             <HistogramWithData
               title="Breakdown by Term"
-              data={[
-                { term: "Fall 2020", Rating: 4.5 },
-                { term: "Spring 2020", Rating: 4.3 },
-                { term: "Fall 2021", Rating: 2.2 },
-                { term: "Spring 2022", Rating: 2.2 },
-                { term: "Fall 2023", Rating: 5.0 },
-                { term: "Spring 2023", Rating: 4.3 },
-                { term: "Fall 2024", Rating: 2.2 },
-                { term: "Spring 2024", Rating: 2.2 },
-                { term: "Fall 2025", Rating: 5.0 },
-                { term: "Spring 2025", Rating: 4.3 },
-                { term: "Fall 2026", Rating: 2.2 },
-                { term: "Spring 2026", Rating: 2.2 },
-                { term: "Fall 2027", Rating: 5.0 },
-                { term: "Spring 2027", Rating: 4.3 },
-                { term: "Fall 2028", Rating: 2.2 },
-                { term: "Spring 2028", Rating: 2.2 },
-              ]}
+              data={data.termBreakdown}
             />
           </Col>
         </Row>
