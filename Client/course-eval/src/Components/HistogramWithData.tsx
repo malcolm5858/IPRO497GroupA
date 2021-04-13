@@ -1,5 +1,5 @@
 import { ResponsiveBar } from "@nivo/bar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 /* Data goes in this form 
 { term: "Fall 2020", Rating: 4.5 },
@@ -26,6 +26,13 @@ interface histogramProps {
 }
 
 export function HistogramWithData(props: histogramProps) {
+  const [refresh, setRefresh] = useState(false);
+
+  useEffect(() => {
+    setRefresh(true);
+    console.log(props);
+  }, [props]);
+
   return (
     <div style={{ fontFamily: "sans-serif", textAlign: "center" }}>
       <h1>{props.title}</h1>

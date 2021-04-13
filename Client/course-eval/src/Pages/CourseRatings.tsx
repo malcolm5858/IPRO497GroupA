@@ -4,18 +4,24 @@ import { HistogramWithData } from "../Components/HistogramWithData";
 import Rating from "../Components/Rating";
 import RatingBreakdown from "../Components/RatingBreakdown";
 
+interface histBreakdown {
+  term: String;
+  Rating: number;
+}
 interface CourseRatingsData {
   department: String;
   courseNumber: number;
   overall_rating: number;
-  profBreakdown: { rating: number; description: String }[];
-  termBreakdown: { term: String; Rating: number }[];
+  course_id: String;
+  profBreakdown: { rating: number; description: String; Id: String }[];
+  termBreakdown: histBreakdown[];
 }
 
 const initial_state: CourseRatingsData = {
   department: "",
   courseNumber: 0,
   overall_rating: 0,
+  course_id: "",
   profBreakdown: [],
   termBreakdown: [],
 };
@@ -61,6 +67,7 @@ export function CourseRatings(props: any) {
               rating={data.overall_rating}
               sendData={clickData}
               description={"Test"}
+              id={data.course_id}
             />
             <p style={{ textAlign: "center", fontSize: 24 }}>Overall Rating</p>
           </Col>

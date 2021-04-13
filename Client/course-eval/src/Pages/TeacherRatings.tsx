@@ -4,16 +4,23 @@ import { HistogramWithData } from "../Components/HistogramWithData";
 import Rating from "../Components/Rating";
 import RatingBreakdown from "../Components/RatingBreakdown";
 
+interface histBreakdown {
+  term: String;
+  Rating: number;
+}
+
 interface teacherRatingsData {
   professor_name: String;
   overall_rating: number;
-  courseBreakdown: { rating: number; description: String }[];
-  termBreakdown: { term: String; Rating: number }[];
+  teacher_id: String;
+  courseBreakdown: { rating: number; description: String; Id: String }[];
+  termBreakdown: histBreakdown[];
 }
 
 const initialState: teacherRatingsData = {
   professor_name: "",
   overall_rating: 0,
+  teacher_id: "",
   courseBreakdown: [],
   termBreakdown: [],
 };
@@ -26,8 +33,36 @@ export function TeacherRatings(props: any) {
   const arrAvg = (arr: number[]) =>
     arr.reduce((a: number, b: number) => a + b, 0) / arr.length;
 
-  const clickData = (description: string) => {
+  const teacherData = async (description: string) => {
     console.log(description);
+
+    try {
+      const response = await fetch(
+        `http://localhost:8000/ClickRatings/${description}/Teacher`
+      );
+      const jsonData = await response.json();
+      var tempData = data;
+      tempData.termBreakdown = jsonData.responses;
+      setData(tempData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const classData = async (description: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/ClickRatings/${description}/Class`
+      );
+      const jsonData = await response.json();
+      var tempData = data;
+
+      tempData.termBreakdown = jsonData.responses;
+      setData(tempData);
+      console.log(data);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   const getRatings = async () => {
@@ -45,6 +80,7 @@ export function TeacherRatings(props: any) {
 
   useEffect(() => {
     getRatings();
+    console.log(data);
   }, [props]);
 
   return (
@@ -60,8 +96,9 @@ export function TeacherRatings(props: any) {
             <Rating
               size={200}
               rating={data.overall_rating}
-              sendData={clickData}
-              description={"Test"}
+              sendData={teacherData}
+              description={""}
+              id={data.teacher_id}
             />
             <p style={{ textAlign: "center", fontSize: 24 }}>Overall Rating</p>
           </Col>
@@ -71,7 +108,7 @@ export function TeacherRatings(props: any) {
             <h2 style={{ textAlign: "center" }}>Course Breakdown:</h2>
             <RatingBreakdown
               ratings={data.courseBreakdown}
-              sendData={clickData}
+              sendData={classData}
             />
           </Col>
         </Row>
