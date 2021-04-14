@@ -29,6 +29,7 @@ export function TeacherRatings(props: any) {
   const { professor_id, professor_name } = props;
 
   const [data, setData] = useState(initialState);
+  const [value, setValue] = useState(0);
 
   const arrAvg = (arr: number[]) =>
     arr.reduce((a: number, b: number) => a + b, 0) / arr.length;
@@ -43,7 +44,13 @@ export function TeacherRatings(props: any) {
       const jsonData = await response.json();
       var tempData = data;
       tempData.termBreakdown = jsonData.responses;
+      tempData.termBreakdown = [];
       setData(tempData);
+      tempData.termBreakdown = jsonData.responses;
+      setData(tempData);
+      console.log(data);
+      setValue((value) => value + 1);
+      console.log("no");
     } catch (err) {
       console.error(err.message);
     }
@@ -57,9 +64,12 @@ export function TeacherRatings(props: any) {
       const jsonData = await response.json();
       var tempData = data;
 
+      tempData.termBreakdown = [];
+      setData(tempData);
       tempData.termBreakdown = jsonData.responses;
       setData(tempData);
       console.log(data);
+      setValue((value) => value + 1);
     } catch (err) {
       console.error(err.message);
     }
