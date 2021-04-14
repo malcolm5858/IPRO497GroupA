@@ -4,6 +4,8 @@ import { TestContent } from "../Components/TestContent";
 import _ from "lodash";
 import { TeacherRatings } from "./TeacherRatings";
 import { CourseRatings } from "./CourseRatings";
+import { RouteComponentProps, useParams } from "react-router";
+
 
 var mounted = false;
 interface hState {
@@ -24,12 +26,20 @@ const initialState: hState = {
   results: [],
   value: "",
   dataFromApi: {},
-  userToUse: { _id: "0976f0a9cb65", title: "Anuj Chaos", type: "professor" },
+  userToUse: { _id: "", title: "", type: "landing" },
 };
-export default class Home extends Component {
-  state: hState = initialState;
 
+interface RouteParams {
+  id: string;
+  name: string;
+  type: string;
+}
+export default class Home extends Component<RouteComponentProps<RouteParams>> {
+  state: hState = initialState;
+  
   async componentDidMount() {
+    const { match: { params } } = this.props;
+    this.setState({ userToUse: { _id: params.id, title: params.name, type: params.type } });
     const response = await fetch("http://localhost:8000/search");
     const data = await response.json();
     this.setState({ dataFromApi: data });
@@ -90,6 +100,10 @@ export default class Home extends Component {
               course_number={this.state.userToUse.course_number}
             />
           );
+        // case "landing":
+        //   return (
+        //     <Launch />
+        //   );
       }
     };
 
@@ -102,6 +116,7 @@ export default class Home extends Component {
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
               aligned="right"
+              size="big"
               onSearchChange={this.handleSearchChange}
               results={results}
               value={value}
