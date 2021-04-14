@@ -15,8 +15,8 @@
         "student_id": {
             "$oid": "b59fc5b6f09b"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -48,7 +48,7 @@
         "student_id": {
             "$oid": "e4bc4a34bb86"
         },
-        "professor_rating": 4,
+        "professor_rating": 3,
         "class_rating": 4,
         "course_department": "Math",
         "survey_id": {
@@ -81,8 +81,8 @@
         "student_id": {
             "$oid": "838ff14fdfa2"
         },
-        "professor_rating": 5,
-        "class_rating": 3,
+        "professor_rating": 1,
+        "class_rating": 2,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -115,7 +115,7 @@
             "$oid": "c5371846bb3e"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 2,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -147,7 +147,7 @@
         "student_id": {
             "$oid": "f5f1d22c0e86"
         },
-        "professor_rating": 4,
+        "professor_rating": 3,
         "class_rating": 2,
         "course_department": "Math",
         "survey_id": {
@@ -181,7 +181,7 @@
             "$oid": "035f9a33e75f"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -213,8 +213,8 @@
         "student_id": {
             "$oid": "50c21b11a53d"
         },
-        "professor_rating": 1,
-        "class_rating": 1,
+        "professor_rating": 3,
+        "class_rating": 3,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -246,8 +246,8 @@
         "student_id": {
             "$oid": "6d25b5c18810"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 1,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -279,7 +279,7 @@
         "student_id": {
             "$oid": "1d416b160603"
         },
-        "professor_rating": 4,
+        "professor_rating": 5,
         "class_rating": 4,
         "course_department": "Math",
         "survey_id": {
@@ -312,8 +312,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 1,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -345,8 +345,8 @@
         "student_id": {
             "$oid": "7f64692d71cb"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 3,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -378,7 +378,7 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 3,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Math",
         "survey_id": {
@@ -411,7 +411,7 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Math",
         "survey_id": {
@@ -477,8 +477,8 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 3,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -510,8 +510,8 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -543,8 +543,8 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -576,8 +576,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 1,
         "course_department": "Math",
         "survey_id": {
             "$oid": "f58b3cf7f999"
@@ -609,7 +609,7 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Math",
         "survey_id": {
@@ -642,8 +642,8 @@
         "student_id": {
             "$oid": "b59fc5b6f09b"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -671,7 +671,7 @@
         "student_id": {
             "$oid": "8eb9c795d226"
         },
-        "professor_rating": 1,
+        "professor_rating": 5,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -700,8 +700,8 @@
         "student_id": {
             "$oid": "e4bc4a34bb86"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -729,8 +729,8 @@
         "student_id": {
             "$oid": "838ff14fdfa2"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -758,8 +758,8 @@
         "student_id": {
             "$oid": "f5f1d22c0e86"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -788,7 +788,7 @@
             "$oid": "6d25b5c18810"
         },
         "professor_rating": 1,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -816,8 +816,8 @@
         "student_id": {
             "$oid": "1d416b160603"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -845,8 +845,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -874,8 +874,8 @@
         "student_id": {
             "$oid": "7f64692d71cb"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -904,7 +904,7 @@
             "$oid": "f841fd4998bc"
         },
         "professor_rating": 1,
-        "class_rating": 4,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -932,7 +932,7 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 1,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -962,7 +962,7 @@
             "$oid": "2303078bec98"
         },
         "professor_rating": 1,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -990,8 +990,8 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -1019,7 +1019,7 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 1,
+        "professor_rating": 4,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -1048,8 +1048,8 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -1077,8 +1077,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -1106,8 +1106,8 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 1,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a65bea4aa69a"
@@ -1170,8 +1170,8 @@
         "student_id": {
             "$oid": "8eb9c795d226"
         },
-        "professor_rating": 4,
-        "class_rating": 1,
+        "professor_rating": 2,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "06010513a510"
@@ -1205,8 +1205,8 @@
         "student_id": {
             "$oid": "e4bc4a34bb86"
         },
-        "professor_rating": 4,
-        "class_rating": 1,
+        "professor_rating": 5,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "06010513a510"
@@ -1240,8 +1240,8 @@
         "student_id": {
             "$oid": "838ff14fdfa2"
         },
-        "professor_rating": 4,
-        "class_rating": 1,
+        "professor_rating": 2,
+        "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "06010513a510"
@@ -1275,8 +1275,8 @@
         "student_id": {
             "$oid": "c5371846bb3e"
         },
-        "professor_rating": 4,
-        "class_rating": 1,
+        "professor_rating": 5,
+        "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "06010513a510"
@@ -1310,8 +1310,8 @@
         "student_id": {
             "$oid": "f5f1d22c0e86"
         },
-        "professor_rating": 4,
-        "class_rating": 1,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "06010513a510"
@@ -1346,7 +1346,7 @@
             "$oid": "85d1f4ba389a"
         },
         "professor_rating": 4,
-        "class_rating": 1,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "06010513a510"
@@ -1380,7 +1380,7 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
@@ -1415,8 +1415,8 @@
         "student_id": {
             "$oid": "b59fc5b6f09b"
         },
-        "professor_rating": 5,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1448,7 +1448,7 @@
         "student_id": {
             "$oid": "8eb9c795d226"
         },
-        "professor_rating": 5,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -1481,8 +1481,8 @@
         "student_id": {
             "$oid": "e4bc4a34bb86"
         },
-        "professor_rating": 5,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1514,8 +1514,8 @@
         "student_id": {
             "$oid": "838ff14fdfa2"
         },
-        "professor_rating": 5,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1548,7 +1548,7 @@
             "$oid": "c5371846bb3e"
         },
         "professor_rating": 5,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1580,8 +1580,8 @@
         "student_id": {
             "$oid": "f5f1d22c0e86"
         },
-        "professor_rating": 5,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1613,8 +1613,8 @@
         "student_id": {
             "$oid": "035f9a33e75f"
         },
-        "professor_rating": 5,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1680,7 +1680,7 @@
             "$oid": "6d25b5c18810"
         },
         "professor_rating": 5,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1712,8 +1712,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 5,
-        "class_rating": 4,
+        "professor_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1745,8 +1745,8 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 5,
-        "class_rating": 4,
+        "professor_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "a058a426a7fd"
@@ -1778,8 +1778,8 @@
         "student_id": {
             "$oid": "035f9a33e75f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -1807,8 +1807,8 @@
         "student_id": {
             "$oid": "50c21b11a53d"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -1836,8 +1836,8 @@
         "student_id": {
             "$oid": "6d25b5c18810"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -1865,8 +1865,8 @@
         "student_id": {
             "$oid": "1d416b160603"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -1894,8 +1894,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -1923,8 +1923,8 @@
         "student_id": {
             "$oid": "7f64692d71cb"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -1952,8 +1952,8 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -1981,7 +1981,7 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2011,7 +2011,7 @@
             "$oid": "2303078bec98"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -2039,8 +2039,8 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -2068,7 +2068,7 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2097,7 +2097,7 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2127,7 +2127,7 @@
             "$oid": "85d1f4ba389a"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "be452dab0e43"
@@ -2155,7 +2155,7 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
+        "professor_rating": 3,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2184,8 +2184,8 @@
         "student_id": {
             "$oid": "b59fc5b6f09b"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2222,7 +2222,7 @@
             "$oid": "8eb9c795d226"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2258,7 +2258,7 @@
         "student_id": {
             "$oid": "e4bc4a34bb86"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2295,8 +2295,8 @@
         "student_id": {
             "$oid": "838ff14fdfa2"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2332,8 +2332,8 @@
         "student_id": {
             "$oid": "c5371846bb3e"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2369,8 +2369,8 @@
         "student_id": {
             "$oid": "f5f1d22c0e86"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2406,7 +2406,7 @@
         "student_id": {
             "$oid": "035f9a33e75f"
         },
-        "professor_rating": 4,
+        "professor_rating": 1,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2443,8 +2443,8 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2480,8 +2480,8 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2517,8 +2517,8 @@
         "student_id": {
             "$oid": "2303078bec98"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2554,8 +2554,8 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2592,7 +2592,7 @@
             "$oid": "3adda0712435"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2628,8 +2628,8 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2665,8 +2665,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "d2ffa2b441e7"
@@ -2702,7 +2702,7 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
+        "professor_rating": 3,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2739,7 +2739,7 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
+        "professor_rating": 3,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2773,7 +2773,7 @@
             "$oid": "3adda0712435"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "ffba13a07c72"
@@ -2801,7 +2801,7 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 4,
+        "professor_rating": 5,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -2830,8 +2830,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "ffba13a07c72"
@@ -2859,8 +2859,8 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "ffba13a07c72"
@@ -2889,7 +2889,7 @@
             "$oid": "f1ac139db07a"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "0d003d4bac22"
@@ -2926,7 +2926,7 @@
             "$oid": "3adda0712435"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "0d003d4bac22"
@@ -2962,8 +2962,8 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "0d003d4bac22"
@@ -3000,7 +3000,7 @@
             "$oid": "85d1f4ba389a"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "0d003d4bac22"
@@ -3037,7 +3037,7 @@
             "$oid": "cb23ab1a317f"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "0d003d4bac22"
@@ -3074,7 +3074,7 @@
             "$oid": "7d2561a72c99"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3106,8 +3106,8 @@
         "student_id": {
             "$oid": "7f64692d71cb"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3139,8 +3139,8 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3172,7 +3172,7 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -3205,8 +3205,8 @@
         "student_id": {
             "$oid": "2303078bec98"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3238,7 +3238,7 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -3271,8 +3271,8 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3305,7 +3305,7 @@
             "$oid": "30fdf60564ea"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3337,8 +3337,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3370,8 +3370,8 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "47a19a1a8c97"
@@ -3403,8 +3403,8 @@
         "student_id": {
             "$oid": "c5371846bb3e"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3438,8 +3438,8 @@
         "student_id": {
             "$oid": "f5f1d22c0e86"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3473,8 +3473,8 @@
         "student_id": {
             "$oid": "035f9a33e75f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3508,8 +3508,8 @@
         "student_id": {
             "$oid": "50c21b11a53d"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3578,8 +3578,8 @@
         "student_id": {
             "$oid": "1d416b160603"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3613,8 +3613,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3649,7 +3649,7 @@
             "$oid": "7f64692d71cb"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3683,7 +3683,7 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 4,
+        "professor_rating": 3,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -3718,8 +3718,8 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3753,7 +3753,7 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -3788,7 +3788,7 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
+        "professor_rating": 5,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -3824,7 +3824,7 @@
             "$oid": "30fdf60564ea"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3858,8 +3858,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3893,8 +3893,8 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1b3c91baf453"
@@ -3928,8 +3928,8 @@
         "student_id": {
             "$oid": "b59fc5b6f09b"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -3961,8 +3961,8 @@
         "student_id": {
             "$oid": "8eb9c795d226"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -3994,8 +3994,8 @@
         "student_id": {
             "$oid": "e4bc4a34bb86"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4027,8 +4027,8 @@
         "student_id": {
             "$oid": "838ff14fdfa2"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4094,7 +4094,7 @@
             "$oid": "f5f1d22c0e86"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4126,8 +4126,8 @@
         "student_id": {
             "$oid": "035f9a33e75f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4159,8 +4159,8 @@
         "student_id": {
             "$oid": "50c21b11a53d"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4192,8 +4192,8 @@
         "student_id": {
             "$oid": "6d25b5c18810"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4225,8 +4225,8 @@
         "student_id": {
             "$oid": "1d416b160603"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4258,8 +4258,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4291,8 +4291,8 @@
         "student_id": {
             "$oid": "7f64692d71cb"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4324,8 +4324,8 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4357,8 +4357,8 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4391,7 +4391,7 @@
             "$oid": "2303078bec98"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4424,7 +4424,7 @@
             "$oid": "f1ac139db07a"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4456,7 +4456,7 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
+        "professor_rating": 5,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -4490,7 +4490,7 @@
             "$oid": "30fdf60564ea"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4522,8 +4522,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4555,8 +4555,8 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "8426e36fddc4"
@@ -4588,8 +4588,8 @@
         "student_id": {
             "$oid": "50c21b11a53d"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4625,8 +4625,8 @@
         "student_id": {
             "$oid": "6d25b5c18810"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4662,8 +4662,8 @@
         "student_id": {
             "$oid": "1d416b160603"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4699,8 +4699,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4736,8 +4736,8 @@
         "student_id": {
             "$oid": "7f64692d71cb"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4773,8 +4773,8 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4810,8 +4810,8 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4847,7 +4847,7 @@
         "student_id": {
             "$oid": "2303078bec98"
         },
-        "professor_rating": 4,
+        "professor_rating": 2,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -4884,8 +4884,8 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4921,8 +4921,8 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4958,8 +4958,8 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -4995,8 +4995,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "1cbb9d4e369f"
@@ -5032,7 +5032,7 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
+        "professor_rating": 5,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -5069,8 +5069,8 @@
         "student_id": {
             "$oid": "b59fc5b6f09b"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5102,8 +5102,8 @@
         "student_id": {
             "$oid": "8eb9c795d226"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5136,7 +5136,7 @@
             "$oid": "e4bc4a34bb86"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5169,7 +5169,7 @@
             "$oid": "f5f1d22c0e86"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5201,8 +5201,8 @@
         "student_id": {
             "$oid": "035f9a33e75f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5234,8 +5234,8 @@
         "student_id": {
             "$oid": "50c21b11a53d"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5267,8 +5267,8 @@
         "student_id": {
             "$oid": "6d25b5c18810"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5301,7 +5301,7 @@
             "$oid": "1d416b160603"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5333,8 +5333,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5367,7 +5367,7 @@
             "$oid": "7f64692d71cb"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5399,8 +5399,8 @@
         "student_id": {
             "$oid": "f841fd4998bc"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5433,7 +5433,7 @@
             "$oid": "3938b7037c19"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5465,8 +5465,8 @@
         "student_id": {
             "$oid": "2303078bec98"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5531,8 +5531,8 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5565,7 +5565,7 @@
             "$oid": "30fdf60564ea"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5597,7 +5597,7 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
+        "professor_rating": 1,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -5631,7 +5631,7 @@
             "$oid": "cb23ab1a317f"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "995856cdc212"
@@ -5663,7 +5663,7 @@
         "student_id": {
             "$oid": "2303078bec98"
         },
-        "professor_rating": 4,
+        "professor_rating": 5,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -5698,8 +5698,8 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "7bd2ec7053cf"
@@ -5733,8 +5733,8 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "7bd2ec7053cf"
@@ -5768,8 +5768,8 @@
         "student_id": {
             "$oid": "30fdf60564ea"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "7bd2ec7053cf"
@@ -5803,8 +5803,8 @@
         "student_id": {
             "$oid": "85d1f4ba389a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "7bd2ec7053cf"
@@ -5839,7 +5839,7 @@
             "$oid": "cb23ab1a317f"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "7bd2ec7053cf"
@@ -5873,8 +5873,8 @@
         "student_id": {
             "$oid": "50c21b11a53d"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -5906,7 +5906,7 @@
         "student_id": {
             "$oid": "6d25b5c18810"
         },
-        "professor_rating": 4,
+        "professor_rating": 1,
         "class_rating": 4,
         "course_department": "Computer Science",
         "survey_id": {
@@ -5939,8 +5939,8 @@
         "student_id": {
             "$oid": "1d416b160603"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -5972,8 +5972,8 @@
         "student_id": {
             "$oid": "7d2561a72c99"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6005,8 +6005,8 @@
         "student_id": {
             "$oid": "7f64692d71cb"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6039,7 +6039,7 @@
             "$oid": "f841fd4998bc"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6071,8 +6071,8 @@
         "student_id": {
             "$oid": "3938b7037c19"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6104,8 +6104,8 @@
         "student_id": {
             "$oid": "2303078bec98"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 2,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6137,8 +6137,8 @@
         "student_id": {
             "$oid": "f1ac139db07a"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 5,
+        "class_rating": 3,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6170,8 +6170,8 @@
         "student_id": {
             "$oid": "3adda0712435"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 3,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6204,7 +6204,7 @@
             "$oid": "30fdf60564ea"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 2,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6237,7 +6237,7 @@
             "$oid": "85d1f4ba389a"
         },
         "professor_rating": 4,
-        "class_rating": 4,
+        "class_rating": 5,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
@@ -6269,8 +6269,8 @@
         "student_id": {
             "$oid": "cb23ab1a317f"
         },
-        "professor_rating": 4,
-        "class_rating": 4,
+        "professor_rating": 1,
+        "class_rating": 1,
         "course_department": "Computer Science",
         "survey_id": {
             "$oid": "edeb64f014c7"
