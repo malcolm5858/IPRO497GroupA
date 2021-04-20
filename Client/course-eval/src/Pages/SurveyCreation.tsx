@@ -2,6 +2,7 @@ import { TextAreaProps } from "formik-semantic-ui-react/dist/TextArea";
 import { size } from "lodash";
 import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
+import { useParams } from "react-router";
 import {
   Button,
   Form,
@@ -13,12 +14,9 @@ import {
 } from "semantic-ui-react";
 import { ModalRapper } from "../Components/ModalRapper";
 
-interface newField {
-  question: string;
-}
 interface sState {
   newField: boolean;
-  newResponses: newField[];
+  newResponses: string[];
 }
 
 const initialState: sState = {
@@ -26,13 +24,38 @@ const initialState: sState = {
   newResponses: [],
 };
 
+interface dataToSend {
+  professorId: string;
+  classId: string;
+  newResponses: string[];
+}
+
+interface paramType {
+  teacherId: string;
+  classId: string;
+}
+
 export const SurveyCreation: React.FC = () => {
   const [state, setState] = useState<sState>(initialState);
   const [value, setValue] = useState(0);
   const [modalState, closeModal] = useState(false);
   const [question, setQuestion] = useState("");
+  const { teacherId, classId } = useParams<paramType>();
 
-  const onClickSaveSurvey = () => {};
+  const onClickSaveSurvey = () => {
+    let data: dataToSend = {
+      professorId: teacherId,
+      classId: classId,
+      newResponses: state.newResponses,
+    };
+    fetch("http://localhost:8000/newSurvey", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  };
 
   const handleFormChange = (
     e: React.ChangeEvent<HTMLTextAreaElement>,
@@ -56,7 +79,7 @@ export const SurveyCreation: React.FC = () => {
   const changeQuestion = (question: string, index: number) => {
     const tempState = state;
     console.log(tempState.newResponses[index]);
-    tempState.newResponses[index] = { question: question };
+    tempState.newResponses[index] = question;
     console.log(tempState.newResponses[index]);
     setState(tempState);
     setValue((value) => value + 1);
@@ -64,7 +87,7 @@ export const SurveyCreation: React.FC = () => {
 
   const onClickAddNewField = (question: string) => {
     const tempState = state;
-    tempState.newResponses.push({ question: question });
+    tempState.newResponses.push(question);
     setState(tempState);
     setValue((value) => value + 1);
     //console.log(state);
@@ -132,12 +155,12 @@ export const SurveyCreation: React.FC = () => {
         Custom Questions:
       </h2>
       {state.newField ? (
-        state.newResponses.map((r: newField, index: number) => (
+        state.newResponses.map((r: string, index: number) => (
           <div>
             <div style={{ paddingLeft: 20 }}>
               <Row>
                 <Col md={3}>
-                  <label>{r.question}</label>
+                  <label>{r}</label>
                 </Col>
               </Row>
               <Row style={{ paddingLeft: 10 }}>

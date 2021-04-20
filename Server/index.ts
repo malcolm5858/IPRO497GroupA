@@ -32,6 +32,56 @@ interface teacherRatingsData {
 }
 
 // ROUTES
+
+app.post("/newSurvey", async (req, res) => {
+  try {
+    MongoClient.connect(
+      db_url,
+      async function (
+        err: any,
+        client: { db: (arg0: string) => any; close: () => void }
+      ) {
+        assert.equal(null, err);
+        console.log("Connected successfully to server");
+
+        const db = client.db(db_name);
+        const professors = db.collection("Professors");
+        const professor = await professors.findOne({
+          _id: ObjectId(req.body.professorId),
+        });
+        console.log(professor);
+        const courses = db.collection("Courses");
+        const course = await courses.findOne({
+          _id: ObjectId(req.body.classId),
+        });
+        console.log(course);
+
+        const data = {
+          professor_id: ObjectId(req.body.professorId),
+          professor_name: professor.professor_name,
+          course_id: ObjectId(req.body.classId),
+          course_number: course.course_number,
+          course_department: course.department,
+          professor_made_questions: req.body.newResponses,
+        };
+
+        const Surveys = db.collection("Surveys");
+        Surveys.insertOne(data, function (err: any, result: any) {
+          assert.equal(err, null);
+        });
+
+        client.close();
+      }
+    );
+
+    res.status(201).json({
+      status: "ok",
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 app.post("/surveyResponse", async (req, res) => {
   try {
     console.log(req.body.survey_id);
@@ -47,7 +97,9 @@ app.post("/surveyResponse", async (req, res) => {
 
         const db = client.db(db_name);
         const surveys = db.collection("Surveys");
-        const survey = await surveys.findOne({_id: ObjectId(req.body.survey_id)});
+        const survey = await surveys.findOne({
+          _id: ObjectId(req.body.survey_id),
+        });
         console.log(survey);
 
         const data = {
@@ -63,7 +115,8 @@ app.post("/surveyResponse", async (req, res) => {
           class_rating: req.body.class_rating,
           default_questions_responses: req.body.default_questions_responses,
           professor_made_questions: survey.professor_made_questions,
-          professor_made_questions_responses: req.body.professor_made_questions_responses
+          professor_made_questions_responses:
+            req.body.professor_made_questions_responses,
         };
 
         const responses = db.collection("Responses");
@@ -316,8 +369,8 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
 
       let average = (array: any[]) =>
         Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
-      
-      var overall = average(courseResponse.map((a : any) => a.class_rating));
+
+      var overall = average(courseResponse.map((a: any) => a.class_rating));
 
       for (var i = 0; i < profNames.length; i++) {
         profBreakdown[i] = {
@@ -401,11 +454,11 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
           ]);
         }
       });
-      
+
       let average = (array: any[]) =>
         Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
 
-      var overall = average(courseResponse.map((a : any) => a.professor_rating));
+      var overall = average(courseResponse.map((a: any) => a.professor_rating));
 
       for (var i = 0; i < courseNames.length; i++) {
         courseBreakdown[i] = {

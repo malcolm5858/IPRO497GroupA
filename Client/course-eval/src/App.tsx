@@ -18,7 +18,11 @@ function App() {
           children={<Survey />}
         />
         <Route exact path="/Home/:id/:name/:type" component={Home} />
-        <Route exact path="/Test" component={SurveyCreation} />
+        <Route
+          exact
+          path="/CreateSurvey/:teacherId/:classId"
+          component={SurveyCreation}
+        />
         <Route path="/" component={Launch} />
       </Switch>
     </Router>
