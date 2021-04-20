@@ -1,13 +1,21 @@
+import { TextAreaProps } from "formik-semantic-ui-react/dist/TextArea";
 import { size } from "lodash";
 import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
-import { Button, FormGroup, Icon, Radio, TextArea } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Icon,
+  Modal,
+  ModalActions,
+  Radio,
+  TextArea,
+} from "semantic-ui-react";
+import { ModalRapper } from "../Components/ModalRapper";
 
 interface newField {
-  label: string;
   question: string;
 }
-
 interface sState {
   newField: boolean;
   newResponses: newField[];
@@ -15,21 +23,51 @@ interface sState {
 
 const initialState: sState = {
   newField: true,
-  newResponses: [{ question: "test question", label: "Test" }],
+  newResponses: [],
 };
 
 export const SurveyCreation: React.FC = () => {
   const [state, setState] = useState<sState>(initialState);
   const [value, setValue] = useState(0);
+  const [modalState, closeModal] = useState(false);
+  const [question, setQuestion] = useState("");
 
   const onClickSaveSurvey = () => {};
 
-  const onClickAddNewField = () => {
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+    data: any
+  ) => {
+    setQuestion(data.value);
+    console.log(question);
+  };
+
+  const handleCreateButton = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onClickAddNewField(question);
+    setQuestion("");
+    closeModalHandler();
+  };
+
+  const closeModalHandler = () => {
+    closeModal(false);
+  };
+
+  const changeQuestion = (question: string, index: number) => {
     const tempState = state;
-    tempState.newResponses.push({ label: "None", question: "None" });
+    console.log(tempState.newResponses[index]);
+    tempState.newResponses[index] = { question: question };
+    console.log(tempState.newResponses[index]);
     setState(tempState);
     setValue((value) => value + 1);
-    console.log(state);
+  };
+
+  const onClickAddNewField = (question: string) => {
+    const tempState = state;
+    tempState.newResponses.push({ question: question });
+    setState(tempState);
+    setValue((value) => value + 1);
+    //console.log(state);
   };
 
   return (
@@ -39,10 +77,9 @@ export const SurveyCreation: React.FC = () => {
       <h2 style={{ textAlign: "left", paddingLeft: "20px" }}>
         Default Questions:
       </h2>
-      <h3 style={{ paddingLeft: 20 }}>Instructor</h3>
       <div style={{ paddingLeft: 20 }}>
         <Row>
-          <Col md={2}>
+          <Col md={3}>
             <label>
               On a scale from 1 to 5, how satisfied are
               <br /> you with your instructor for this course?
@@ -65,11 +102,9 @@ export const SurveyCreation: React.FC = () => {
           name="prof_comments"
         />
       </Row>
-
-      <h3 style={{ paddingLeft: 20 }}>Course</h3>
       <div style={{ paddingLeft: 20 }}>
         <Row>
-          <Col md={2}>
+          <Col md={3}>
             <label>
               On a scale from 1 to 5, how satisfied are <br />
               you with the course material?
@@ -93,13 +128,15 @@ export const SurveyCreation: React.FC = () => {
         />
       </Row>
       <br />
+      <h2 style={{ textAlign: "left", paddingLeft: "20px" }}>
+        Custom Questions:
+      </h2>
       {state.newField ? (
-        state.newResponses.map((r: newField) => (
+        state.newResponses.map((r: newField, index: number) => (
           <div>
-            <h3 style={{ paddingLeft: 20 }}>{r.label}</h3>
             <div style={{ paddingLeft: 20 }}>
               <Row>
-                <Col md={2}>
+                <Col md={3}>
                   <label>{r.question}</label>
                 </Col>
               </Row>
@@ -110,6 +147,7 @@ export const SurveyCreation: React.FC = () => {
                   style={{ minHeight: 100, minWidth: "80%" }}
                   name="class_comments"
                 />
+                <ModalRapper index={index} change={changeQuestion} />
               </Row>
             </div>
             <br />
@@ -120,14 +158,39 @@ export const SurveyCreation: React.FC = () => {
       )}
       <br />
       <Row style={{ paddingLeft: 30 }}>
-        <Button onClick={onClickAddNewField}>
-          <Icon name="add" />
-          Add new field
-        </Button>
-      </Row>
-
-      <br />
-      <Row style={{ paddingLeft: 30 }}>
+        <Modal
+          centered={true}
+          size={"small"}
+          style={{
+            height: 250,
+            width: 800,
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            marginLeft: -400,
+            marginTop: -125,
+          }}
+          trigger={
+            <Button onClick={() => closeModal(true)}>
+              <Icon name="add" />
+              Add new Field
+            </Button>
+          }
+          onClose={closeModalHandler}
+          open={modalState}>
+          <Modal.Header>Enter question below</Modal.Header>
+          <Modal.Content>
+            <Form onSubmit={handleCreateButton}>
+              <Form.TextArea
+                name="question"
+                value={question}
+                onChange={handleFormChange}
+              />
+              <Button id="submit">Save</Button>
+            </Form>
+          </Modal.Content>
+        </Modal>
+        <br />
         <Button onClick={onClickSaveSurvey}>
           <Icon name="save" />
           Save Survey
