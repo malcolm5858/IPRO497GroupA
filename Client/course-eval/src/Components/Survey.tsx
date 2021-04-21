@@ -36,7 +36,7 @@ export const Survey: React.FC = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "lightcyan", height: "100vh" }}>
       <h1 style={{ textAlign: "center" }}>{className}</h1>
       <h2 style={{ textAlign: "center", color: "grey" }}>{name}</h2>
 
