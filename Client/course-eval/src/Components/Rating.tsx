@@ -4,12 +4,13 @@ import "../css/Rating.css";
 interface Props {
   size: number;
   rating: number;
+  id: String;
   sendData: Function;
   description: string;
 }
 
 const Rating = (props: Props) => {
-  const { size, rating, sendData, description } = props;
+  const { size, rating, sendData, description, id } = props;
   const [offset, setOffset] = useState(0);
 
   const center = size / 2;
@@ -23,7 +24,7 @@ const Rating = (props: Props) => {
   }, [setOffset, circumference, rating, offset]);
 
   return (
-    <div onClick={() => sendData(description)}>
+    <div onClick={() => sendData(id)}>
       <svg className="svg" width={size} height={size}>
         <circle
           className="svg-circle-bg"

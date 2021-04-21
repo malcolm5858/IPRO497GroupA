@@ -4,18 +4,24 @@ import { HistogramWithData } from "../Components/HistogramWithData";
 import Rating from "../Components/Rating";
 import RatingBreakdown from "../Components/RatingBreakdown";
 
+interface histBreakdown {
+  term: String;
+  Rating: number;
+}
 interface CourseRatingsData {
   department: String;
   courseNumber: number;
   overall_rating: number;
-  profBreakdown: { rating: number; description: String }[];
-  termBreakdown: { term: String; Rating: number }[];
+  course_id: String;
+  profBreakdown: { rating: number; description: String; Id: String }[];
+  termBreakdown: histBreakdown[];
 }
 
 const initial_state: CourseRatingsData = {
   department: "",
   courseNumber: 0,
   overall_rating: 0,
+  course_id: "",
   profBreakdown: [],
   termBreakdown: [],
 };
@@ -24,6 +30,7 @@ export function CourseRatings(props: any) {
   const { course_id } = props;
 
   const [data, setData] = useState(initial_state);
+  const [value, setValue] = useState(0);
 
   const getData = async () => {
     try {
@@ -38,8 +45,45 @@ export function CourseRatings(props: any) {
     }
   };
 
-  const clickData = (description: string) => {
+  const teacherData = async (description: string) => {
     console.log(description);
+
+    try {
+      const response = await fetch(
+        `http://localhost:8000/ClickRatings/${description}/Teacher`
+      );
+      const jsonData = await response.json();
+      var tempData = data;
+      tempData.termBreakdown = jsonData.responses;
+      tempData.termBreakdown = [];
+      setData(tempData);
+      tempData.termBreakdown = jsonData.responses;
+      setData(tempData);
+      console.log(data);
+      setValue((value) => value + 1);
+      console.log("no");
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const classData = async (description: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/ClickRatings/${description}/Class`
+      );
+      const jsonData = await response.json();
+      var tempData = data;
+
+      tempData.termBreakdown = [];
+      setData(tempData);
+      tempData.termBreakdown = jsonData.responses;
+      setData(tempData);
+      console.log(data);
+      setValue((value) => value + 1);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   useEffect(() => {
@@ -59,8 +103,9 @@ export function CourseRatings(props: any) {
             <Rating
               size={200}
               rating={data.overall_rating}
-              sendData={clickData}
+              sendData={classData}
               description={"Test"}
+              id={data.course_id}
             />
             <p style={{ textAlign: "center", fontSize: 24 }}>Overall Rating</p>
           </Col>
@@ -70,7 +115,7 @@ export function CourseRatings(props: any) {
             <h2 style={{ textAlign: "center" }}>Professor Breakdown:</h2>
             <RatingBreakdown
               ratings={data.profBreakdown}
-              sendData={clickData}
+              sendData={teacherData}
             />
           </Col>
         </Row>
