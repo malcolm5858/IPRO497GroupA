@@ -6,22 +6,26 @@ import Home from "./Pages/Home";
 import { TeacherRatings } from "./Pages/TeacherRatings";
 import { CourseRatings } from "./Pages/CourseRatings";
 import Launch from "./Pages/Launch";
+import { SurveyCreation } from "./Pages/SurveyCreation";
 //import { launch } from "./Pages/launch";
 
 function App() {
-
   return (
-     <Router>
-       <Switch>
-         <Route
-           path="/Survey/:studentId/:name/:surveyId/:className"
-           children={<Survey />}
-         />
+    <Router>
+      <Switch>
+        <Route
+          path="/Survey/:studentId/:name/:surveyId/:className"
+          children={<Survey />}
+        />
         <Route exact path="/Home/:id/:name/:type" component={Home} />
-        <Route path="/" component = {Launch} />
-       </Switch>
-     </Router>
-    
+        <Route
+          exact
+          path="/CreateSurvey/:teacherId/:classId"
+          component={SurveyCreation}
+        />
+        <Route path="/" component={Launch} />
+      </Switch>
+    </Router>
   );
 }
 

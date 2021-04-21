@@ -39,6 +39,56 @@ interface teacherRatingsData {
 }
 
 // ROUTES
+
+app.post("/newSurvey", async (req, res) => {
+  try {
+    MongoClient.connect(
+      db_url,
+      async function (
+        err: any,
+        client: { db: (arg0: string) => any; close: () => void }
+      ) {
+        assert.equal(null, err);
+        console.log("Connected successfully to server");
+
+        const db = client.db(db_name);
+        const professors = db.collection("Professors");
+        const professor = await professors.findOne({
+          _id: ObjectId(req.body.professorId),
+        });
+        console.log(professor);
+        const courses = db.collection("Courses");
+        const course = await courses.findOne({
+          _id: ObjectId(req.body.classId),
+        });
+        console.log(course);
+
+        const data = {
+          professor_id: ObjectId(req.body.professorId),
+          professor_name: professor.professor_name,
+          course_id: ObjectId(req.body.classId),
+          course_number: course.course_number,
+          course_department: course.department,
+          professor_made_questions: req.body.newResponses,
+        };
+
+        const Surveys = db.collection("Surveys");
+        Surveys.insertOne(data, function (err: any, result: any) {
+          assert.equal(err, null);
+        });
+
+        client.close();
+      }
+    );
+
+    res.status(201).json({
+      status: "ok",
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 app.post("/surveyResponse", async (req, res) => {
   try {
     console.log(req.body.survey_id);
