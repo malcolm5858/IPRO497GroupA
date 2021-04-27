@@ -662,7 +662,6 @@ app.get("/getTeacherView/:teacherId", async (req, res) => {
         .toArray();
       var surveysIn: { className: string; surveyId: string }[] = [];
       var links: { studentName: string; studentLink: string }[][] = [];
-<<<<<<< HEAD
 
       selectedSurveys.forEach((e: any, index: any) => {
         const className = e.course_department + " " + e.course_number;
@@ -670,8 +669,6 @@ app.get("/getTeacherView/:teacherId", async (req, res) => {
         links.push([]);
       });
 
-=======
->>>>>>> teacherPage
       var data: teacherViewData = {
         name: teacher.professor_name,
         surveys: surveysIn,
