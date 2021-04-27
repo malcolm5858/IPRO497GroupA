@@ -589,6 +589,25 @@ app.get("/ClickRatings/:id/:type", (req, res) => {
   }
 });
 
+app.get("/Survey/:SurveyId", async (req, res) => {
+  try {
+    const { SurveyId } = req.params;
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+      const db = client.db(db_name);
+      const surveys = db.collection("Surveys");
+      const survey = await surveys.find({ _id: ObjectId(SurveyId) }).toArray();
+
+      res.status(200).json({
+        status: "ok",
+        responses: survey,
+      });
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 app.get("/", (req, res) => res.send("Express + TypeScript Server"));
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
