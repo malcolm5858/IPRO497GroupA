@@ -2,6 +2,8 @@ import { Formik } from "formik";
 import { Button, Icon, Modal, ModalActions } from "semantic-ui-react";
 import { Input, Form } from "formik-semantic-ui-react";
 import * as yup from "yup";
+import logo from "../images/logo.png";
+
 const initialValues = {
   username: "",
   password: "",
@@ -14,7 +16,7 @@ const LoginValidation = yup.object().shape({
 
 export function Login() {
   return (
-    <div>
+    <div style={{backgroundColor: "lightcyan", height: "100vh"}}>
       <div
         style={{
           position: "absolute",
@@ -25,6 +27,7 @@ export function Login() {
           width: "500px",
           height: "500px",
         }}>
+        <img src={logo} height={200} className="d-block mx-auto mb-5" />
         <Formik
           initialValues={initialValues}
           validationSchema={LoginValidation}
