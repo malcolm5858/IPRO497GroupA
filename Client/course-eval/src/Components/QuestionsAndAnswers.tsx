@@ -26,7 +26,7 @@ const QuestionsAndAnswers = (props: Props) => {
        
           {answers.map((q: any, index: number) => (
             <>
-            <Row>
+            <Row className="mt-5">
               <h2 style={{ textAlign: "center" }}>Question:</h2>
               </Row>
               <Row>

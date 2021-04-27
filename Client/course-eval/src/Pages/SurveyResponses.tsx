@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Rating from "../Components/Rating";
 import QandA from "../Components/QuestionsAndAnswers";
+import logo from "../images/logo.png";
 
 interface SurveyResponsesData {
   department: String;
@@ -69,8 +70,15 @@ export function SurveyResponses(props: any) {
 
 
   return (
-    <>
+    <div style={{backgroundColor: "lightcyan"}}>
       <Container>
+        <Row>
+          <Col>
+            <img src={logo} height={100} className="mb-5" />
+          </Col>
+          <Col></Col>
+          <Col></Col>
+        </Row>
         <Row>
           <Col>
             <p
@@ -78,6 +86,7 @@ export function SurveyResponses(props: any) {
               {data.prof_name + " "}
             </p>
             <Rating
+              id=""
               size={200}
               rating={data.prof_rating}
               sendData={clickData}
@@ -92,6 +101,7 @@ export function SurveyResponses(props: any) {
               {data.department + " " + data.course_number +  " " + data.term}
             </p>
             <Rating
+              id=""
               size={200}
               rating={data.course_rating}
               sendData={clickData}
@@ -112,6 +122,6 @@ export function SurveyResponses(props: any) {
         </Row>
 
       </Container>
-    </>
+    </div>
   );
 }
