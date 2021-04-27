@@ -94,7 +94,7 @@ export function TeacherRatings(props: any) {
   }, [props]);
 
   return (
-    <>
+    <div style={{ backgroundColor: "lightcyan"}}>
       <Container>
         <Row>
           <Col>
@@ -132,6 +132,6 @@ export function TeacherRatings(props: any) {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }

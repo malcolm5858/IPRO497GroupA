@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
 import "../css/Survey.css";
 import _ from "lodash";
+import logo from "../images/logo.png";
 
 interface Values {
   survey_id: string;
@@ -37,11 +38,19 @@ export const Survey: React.FC = () => {
 
   return (
     <div style={{ backgroundColor: "lightcyan", height: "100vh" }}>
-      <h1 style={{ textAlign: "center" }}>{className}</h1>
-      <h2 style={{ textAlign: "center", color: "grey" }}>{name}</h2>
 
       <Container>
         <Row>
+          <Col>
+            <img src={logo} height={100} className="mx-left"/>
+          </Col>
+          <Col className="mt-5">
+            <h1 style={{ textAlign: "center" }}>{className}</h1>
+            <h2 style={{ textAlign: "center", color: "grey" }}>{name}</h2>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row className="mt-5">
           <Col>
             <Formik
               initialValues={initialValues}
