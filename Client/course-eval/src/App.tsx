@@ -21,7 +21,10 @@ function App() {
           children={<Survey />}
         />
         <Route exact path="/Home/:id/:name/:type" component={Home} />
-        <Route path="/test" component = {() => <SurveyResponses course_id="616236373263323038306535" prof_id ="616633373865323739623562" term="Fall 2019"/>} />
+        <Route
+          path="/SurveyResponses/:course_id/:prof_id/:term"
+          component={SurveyResponses}
+        />
         <Route
           exact
           path="/CreateSurvey/:teacherId/:classId"

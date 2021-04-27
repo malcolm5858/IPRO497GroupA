@@ -9,6 +9,17 @@ import { RouteComponentProps } from "react-router";
 import logo from "../images/logo.png";
 import { cpuUsage } from "node:process";
 import "../css/Survey.css";
+import { Link } from "react-router-dom";
+import {
+  Button,
+  Dropdown,
+  Form,
+  Icon,
+  Modal,
+  ModalActions,
+  Radio,
+  TextArea,
+} from "semantic-ui-react";
 
 interface hState {
   isLoading: boolean;
@@ -26,13 +37,9 @@ const initialState: hState = {
   userToUse: { _id: "", title: "", type: "landing" },
 };
 
-interface RouteParams {
- 
-}
+interface RouteParams {}
 
 export default class Home extends Component<RouteComponentProps<RouteParams>> {
-
-
   state: hState = initialState;
 
   async componentDidMount() {
@@ -44,16 +51,23 @@ export default class Home extends Component<RouteComponentProps<RouteParams>> {
 
   handleSearchSubmit(event: any) {
     event.preventDefault();
-    var objForSearch: { _id: "", title: "", type: "landing" };
+    var objForSearch: { _id: ""; title: ""; type: "landing" };
     const data = _.entries(this.state.dataFromApi.responses);
 
     data.forEach((obj: any) => {
       if (obj[1]["title"] === this.state.value) {
         objForSearch = obj[1];
-        this.props.history.push("/Home/" + objForSearch._id + "/" + objForSearch.title + "/" + objForSearch.type);
+        this.props.history.push(
+          "/Home/" +
+            objForSearch._id +
+            "/" +
+            objForSearch.title +
+            "/" +
+            objForSearch.type
+        );
       }
       console.log("Change State");
-     
+
       //this.setState({ userToUse: objForSearch });
     });
   }
@@ -83,9 +97,20 @@ export default class Home extends Component<RouteComponentProps<RouteParams>> {
     return (
       <div style={{ backgroundColor: "lightcyan", height: "100vh" }}>
         <Container>
+          <Row style={{ paddingTop: "30px", paddingLeft: "95%" }}>
+            <div style={{ alignSelf: "left" }}>
+              <Link to={"/Login"}>
+                <Button>Login</Button>
+              </Link>
+            </div>
+          </Row>
           <Row>
             <Col>
-              <img src={logo} height={200} className="d-block mx-auto img-fluid w-50 mt-5 mb-5" />
+              <img
+                src={logo}
+                height={200}
+                className="d-block mx-auto img-fluid w-50 mt-5 mb-5"
+              />
             </Col>
           </Row>
           <Row>

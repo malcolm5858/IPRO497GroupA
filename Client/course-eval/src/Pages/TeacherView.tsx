@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { Button, Table } from "semantic-ui-react";
 import AddStudentRapper from "../Components/AddStudentRapper";
 import AddSurveyRapper from "../Components/AddSurveyRapper";
+import { Link } from "react-router-dom";
 
 interface paramType {
   teacherId: string;
@@ -104,7 +105,17 @@ export default function TeacherView() {
                         data.surveys[index].semester}
                     </h1>
                     <AddStudentRapper index={index} change={addStudent} />
-                    <Button>View Results</Button>
+                    <Link
+                      to={
+                        "/SurveyResponses/" +
+                        data.surveys[index].courseId +
+                        "/" +
+                        teacherId +
+                        "/" +
+                        data.surveys[index].semester
+                      }>
+                      <Button>View Results</Button>
+                    </Link>
                   </Table.Cell>
                 </Table.Row>
                 {s.map((l: { studentName: string; studentLink: string }) => (
