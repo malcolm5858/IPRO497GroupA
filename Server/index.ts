@@ -40,7 +40,12 @@ interface teacherRatingsData {
 
 interface teacherViewData {
   name: string;
-  surveys: { className: string; surveyId: string }[];
+  surveys: {
+    className: string;
+    surveyId: string;
+    semester: string;
+    courseId: string;
+  }[];
   studentLinks: { studentName: string; studentLink: string }[][];
 }
 // ROUTES
@@ -660,12 +665,25 @@ app.get("/getTeacherView/:teacherId", async (req, res) => {
       const selectedSurveys = await surveys
         .find({ professor_id: ObjectId(teacherId) })
         .toArray();
-      var surveysIn: { className: string; surveyId: string }[] = [];
-      var links: { studentName: string; studentLink: string }[][] = [];
+      var surveysIn: {
+        className: string;
+        surveyId: string;
+        semester: string;
+        courseId: string;
+      }[] = [];
+      var links: {
+        studentName: string;
+        studentLink: string;
+      }[][] = [];
 
       selectedSurveys.forEach((e: any, index: any) => {
         const className = e.course_department + " " + e.course_number;
-        surveysIn.push({ className: className, surveyId: e._id });
+        surveysIn.push({
+          className: className,
+          surveyId: e._id,
+          semester: e.semester,
+          courseId: e.course_id,
+        });
         links.push([]);
       });
 
