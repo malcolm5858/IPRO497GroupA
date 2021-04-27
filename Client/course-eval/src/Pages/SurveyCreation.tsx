@@ -1,7 +1,7 @@
 import { TextAreaProps } from "formik-semantic-ui-react/dist/TextArea";
 import { size } from "lodash";
 import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
 import {
@@ -15,6 +15,7 @@ import {
 } from "semantic-ui-react";
 import { ModalRapper } from "../Components/ModalRapper";
 import { DeleteRapper } from "../Components/DeleteRapper";
+import logo from "../images/logo.png";
 
 interface sState {
   newField: boolean;
@@ -107,76 +108,96 @@ export const SurveyCreation: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1 style={{ textAlign: "center", fontSize: "50px" }}>Create a Survey</h1>
-      <br />
-      <h2 style={{ textAlign: "left", paddingLeft: "20px" }}>
-        Default Questions:
-      </h2>
-      <div style={{ paddingLeft: 20 }}>
+    <div style={{backgroundColor: "lightcyan", height: "100vh"}}>
+      <Container>
         <Row>
-          <Col md={3}>
+          <Col>
+            <img src={logo} height={100}/>
+          </Col>
+          <Col>
+            <h1 style={{ textAlign: "center", fontSize: "40px" }} className="mt-5">Create a Survey</h1>
+          </Col>
+          <Col></Col>
+        </Row>
+      
+      
+      
+      
+        <Row className="mt-5">
+          <Col>
+          <h2 style={{ textAlign: "left"}}>
+            Default Questions:
+          </h2>
+          </Col>
+          </Row>
+          <Row className="mt-1">
+          <Col>
             <label>
               On a scale from 1 to 5, how satisfied are
               <br /> you with your instructor for this course?
             </label>
           </Col>
-          <Col md={{ span: 4, offset: 0.5 }}>
+          <Col>
             <Radio disabled name="professor_rating" value={1} label="1" />
             <Radio disabled name="professor_rating" value={2} label="2" />
             <Radio disabled name="professor_rating" value={3} label="3" />
             <Radio disabled name="professor_rating" value={4} label="4" />
             <Radio disabled name="professor_rating" value={5} label="5" />
           </Col>
+          <Col></Col>
         </Row>
-      </div>
-      <Row style={{ paddingLeft: 30 }}>
+      <Row>
+        <Col>
         <TextArea
           disabled
           placeholder="Input text here"
           style={{ minHeight: 100, minWidth: "80%" }}
           name="prof_comments"
         />
+        </Col>
       </Row>
-      <div style={{ paddingLeft: 20 }}>
-        <Row>
-          <Col md={3}>
+      
+        <Row className="mt-5">
+          <Col>
             <label>
               On a scale from 1 to 5, how satisfied are <br />
               you with the course material?
             </label>
           </Col>
-          <Col md={{ span: 4, offset: 0.5 }}>
+          <Col>
             <Radio disabled name="class_rating" label="1" value={1} />
             <Radio disabled name="class_rating" label="2" value={2} />
             <Radio disabled name="class_rating" label="3" value={3} />
             <Radio disabled name="class_rating" label="4" value={4} />
             <Radio disabled name="class_rating" label="5" value={5} />
           </Col>
+          <Col></Col>
         </Row>
-      </div>
-      <Row style={{ paddingLeft: 30 }}>
+      
+      <Row>
+        <Col>
         <TextArea
           disabled
           placeholder="Input text here"
           style={{ minHeight: 100, minWidth: "80%" }}
           name="class_comments"
         />
+        </Col>
       </Row>
       <br />
-      <h2 style={{ textAlign: "left", paddingLeft: "20px" }}>
+      <h2 style={{ textAlign: "left"}}>
         Custom Questions:
       </h2>
       {state.newField ? (
         state.newResponses.map((r: string, index: number) => (
           <div>
-            <div style={{ paddingLeft: 20 }}>
+            <div>
               <Row>
                 <Col md={3}>
                   <label>{r}</label>
                 </Col>
               </Row>
-              <Row style={{ paddingLeft: 10 }}>
+              <Row style={{paddingLeft: 15}}>
                 <TextArea
                   disabled
                   placeholder="Input text here"
@@ -198,7 +219,7 @@ export const SurveyCreation: React.FC = () => {
         <div />
       )}
       <br />
-      <Row style={{ paddingLeft: 30 }}>
+      <Row style={{paddingLeft: 15}}>
         <Modal
           centered={true}
           size={"small"}
@@ -238,6 +259,7 @@ export const SurveyCreation: React.FC = () => {
           Save Survey
         </Button>
       </Row>
+      </Container>
     </div>
   );
 };
