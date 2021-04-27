@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Button, Table } from "semantic-ui-react";
 import AddStudentRapper from "../Components/AddStudentRapper";
@@ -10,8 +10,16 @@ interface paramType {
 
 interface tState {
   name: string;
-  surveys: { className: string; surveyId: string }[];
-  studentLinks: { studentName: string; studentLink: string }[][];
+  surveys: {
+    className: string;
+    surveyId: string;
+    semester: string;
+    courseId: string;
+  }[];
+  studentLinks: {
+    studentName: string;
+    studentLink: string;
+  }[][];
 }
 
 const initialState: tState = {
@@ -54,8 +62,26 @@ export default function TeacherView() {
     setValue((value) => value + 1);
   };
 
+  const getData = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/getTeacherView/${teacherId}`
+      );
+      const jsonData = await response.json();
+
+      setData(jsonData.responses);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+    console.log(data);
+  }, []);
+
   return (
-    <div>
+    <div style={{ backgroundColor: "lightcyan", height: "100vh" }}>
       <h1 style={stylesP}>Professor: {data.name}</h1>
       <h2 style={stylesP}>Surveys:</h2>
       <div style={stylesP}>
@@ -72,8 +98,13 @@ export default function TeacherView() {
               <>
                 <Table.Row>
                   <Table.Cell width={7} rowSpan={s.length + 1}>
-                    <h1>{data.surveys[index].className}</h1>
+                    <h1>
+                      {data.surveys[index].className +
+                        ": " +
+                        data.surveys[index].semester}
+                    </h1>
                     <AddStudentRapper index={index} change={addStudent} />
+                    <Button>View Results</Button>
                   </Table.Cell>
                 </Table.Row>
                 {s.map((l: { studentName: string; studentLink: string }) => (
