@@ -4,7 +4,7 @@ import Rating from "./Rating";
 import GridGenerator from "./GridGenerator";
 
 interface Props {
-  ratings: { rating: number; description: String }[];
+  ratings: { rating: number; description: String; Id: String }[];
   sendData: Function;
 }
 
@@ -26,6 +26,7 @@ const RatingBreakdown = (props: Props) => {
                 rating={r.rating}
                 description={r.description}
                 sendData={sendData}
+                id={r.Id}
               />
               <p style={{ textAlign: "center", fontSize: 24 }}>
                 {r.description}

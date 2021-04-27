@@ -16,19 +16,26 @@ app.use(cors());
 app.use(express.json());
 
 //Types
+interface histBreakdown {
+  term: String;
+  Rating: number;
+}
+
 interface CourseRatingsData {
   department: String;
   courseNumber: number;
   overall_rating: number;
-  profBreakdown: { rating: number; description: String }[];
-  termBreakdown: { term: String; Rating: number }[];
+  course_id: String;
+  profBreakdown: { rating: number; description: String; Id: String }[];
+  termBreakdown: histBreakdown[];
 }
 
 interface teacherRatingsData {
   professor_name: String;
   overall_rating: number;
-  courseBreakdown: { rating: number; description: String }[];
-  termBreakdown: { term: String; Rating: number }[];
+  teacher_id: String;
+  courseBreakdown: { rating: number; description: String; Id: String }[];
+  termBreakdown: histBreakdown[];
 }
 
 interface SurveyResponsesData {
@@ -43,6 +50,56 @@ interface SurveyResponsesData {
 }
 
 // ROUTES
+
+app.post("/newSurvey", async (req, res) => {
+  try {
+    MongoClient.connect(
+      db_url,
+      async function (
+        err: any,
+        client: { db: (arg0: string) => any; close: () => void }
+      ) {
+        assert.equal(null, err);
+        console.log("Connected successfully to server");
+
+        const db = client.db(db_name);
+        const professors = db.collection("Professors");
+        const professor = await professors.findOne({
+          _id: ObjectId(req.body.professorId),
+        });
+        console.log(professor);
+        const courses = db.collection("Courses");
+        const course = await courses.findOne({
+          _id: ObjectId(req.body.classId),
+        });
+        console.log(course);
+
+        const data = {
+          professor_id: ObjectId(req.body.professorId),
+          professor_name: professor.professor_name,
+          course_id: ObjectId(req.body.classId),
+          course_number: course.course_number,
+          course_department: course.department,
+          professor_made_questions: req.body.newResponses,
+        };
+
+        const Surveys = db.collection("Surveys");
+        Surveys.insertOne(data, function (err: any, result: any) {
+          assert.equal(err, null);
+        });
+
+        client.close();
+      }
+    );
+
+    res.status(201).json({
+      status: "ok",
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 app.post("/surveyResponse", async (req, res) => {
   try {
     console.log(req.body.survey_id);
@@ -58,7 +115,9 @@ app.post("/surveyResponse", async (req, res) => {
 
         const db = client.db(db_name);
         const surveys = db.collection("Surveys");
-        const survey = await surveys.findOne({_id: ObjectId(req.body.survey_id)});
+        const survey = await surveys.findOne({
+          _id: ObjectId(req.body.survey_id),
+        });
         console.log(survey);
 
         const data = {
@@ -74,7 +133,8 @@ app.post("/surveyResponse", async (req, res) => {
           class_rating: req.body.class_rating,
           default_questions_responses: req.body.default_questions_responses,
           professor_made_questions: survey.professor_made_questions,
-          professor_made_questions_responses: req.body.professor_made_questions_responses
+          professor_made_questions_responses:
+            req.body.professor_made_questions_responses,
         };
 
         const responses = db.collection("Responses");
@@ -299,6 +359,7 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
       var profNames: any[] = [];
       var profRatings: any[][] = [];
       var termNames: any[] = [];
+      var teacherIds: any[] = [];
       var termRatings: any[][] = [];
 
       courseResponse.forEach((element: any) => {
@@ -306,6 +367,7 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
         var term = element.semester;
         if (profNames.length == 0 || profNames.indexOf(prof) == -1) {
           profNames.push(prof);
+          teacherIds.push(element.professor_id);
           profRatings.push([element.class_rating]);
         } else {
           const index = profNames.indexOf(prof);
@@ -327,13 +389,14 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
 
       let average = (array: any[]) =>
         Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
-      
-      var overall = average(courseResponse.map((a : any) => a.class_rating));
+
+      var overall = average(courseResponse.map((a: any) => a.class_rating));
 
       for (var i = 0; i < profNames.length; i++) {
         profBreakdown[i] = {
           rating: average(profRatings[i]),
           description: profNames[i],
+          Id: teacherIds[i],
         };
       }
 
@@ -348,6 +411,7 @@ app.get("/CourseRatings/:course_id", async (req, res) => {
         department: department,
         courseNumber: courseNumber,
         overall_rating: overall,
+        course_id: course_id,
         profBreakdown: profBreakdown,
         termBreakdown: termBreakdown,
       };
@@ -385,6 +449,7 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
       var courseBreakdown = [];
       var termBreakdown = [];
       var courseNames: any[] = [];
+      var courseIds: any[] = [];
       var courseRatings: any[][] = [];
       var termNames: any[] = [];
       var termRatings: any[][] = [];
@@ -394,6 +459,7 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
         var term = element.semester;
         if (courseNames.length == 0 || courseNames.indexOf(course) == -1) {
           courseNames.push(course);
+          courseIds.push(element.course_id);
           courseRatings.push([element.professor_rating]);
         } else {
           const index = courseNames.indexOf(course);
@@ -412,16 +478,17 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
           ]);
         }
       });
-      
+
       let average = (array: any[]) =>
         Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
 
-      var overall = average(courseResponse.map((a : any) => a.professor_rating));
+      var overall = average(courseResponse.map((a: any) => a.professor_rating));
 
       for (var i = 0; i < courseNames.length; i++) {
         courseBreakdown[i] = {
           rating: average(courseRatings[i]),
           description: courseNames[i],
+          Id: courseIds[i],
         };
       }
 
@@ -435,10 +502,83 @@ app.get("/TeacherRatings/:professor_id", async (req, res) => {
       const data: teacherRatingsData = {
         professor_name: name,
         overall_rating: overall,
+        teacher_id: professor_id,
         courseBreakdown: courseBreakdown,
         termBreakdown: termBreakdown,
       };
 
+      res.status(200).json({
+        status: "ok",
+        responses: data,
+      });
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+app.get("/ClickRatings/:id/:type", (req, res) => {
+  try {
+    const { id, type } = req.params;
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+      const db = client.db(db_name);
+      const responses = db.collection("Responses");
+
+      var courseResponse: any;
+      var data: histBreakdown[] = [];
+
+      var termNames: any[] = [];
+      var termRatings: any[][] = [];
+
+      let average = (array: any[]) =>
+        Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
+
+      switch (type) {
+        case "Teacher":
+          courseResponse = await responses
+            .find({ professor_id: ObjectId(id) })
+            .toArray();
+
+          courseResponse.forEach((element: any) => {
+            var term = element.semester;
+            if (termNames.length == 0 || termNames.indexOf(term) == -1) {
+              termNames.push(term);
+              termRatings.push([element.professor_rating]);
+            } else {
+              const index = termNames.indexOf(term);
+              termRatings[index] = termRatings[index].concat([
+                element.professor_rating,
+              ]);
+            }
+          });
+          break;
+        case "Class":
+          courseResponse = await responses
+            .find({ course_id: ObjectId(id) })
+            .toArray();
+
+          courseResponse.forEach((element: any) => {
+            var term = element.semester;
+            if (termNames.length == 0 || termNames.indexOf(term) == -1) {
+              termNames.push(term);
+              termRatings.push([element.class_rating]);
+            } else {
+              const index = termNames.indexOf(term);
+              termRatings[index] = termRatings[index].concat([
+                element.class_rating,
+              ]);
+            }
+          });
+          break;
+      }
+
+      for (var i = 0; i < termNames.length; i++) {
+        data[i] = {
+          term: termNames[i],
+          Rating: average(termRatings[i]),
+        };
+      }
       res.status(200).json({
         status: "ok",
         responses: data,

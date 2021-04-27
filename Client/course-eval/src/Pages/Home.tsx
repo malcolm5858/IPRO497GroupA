@@ -5,6 +5,8 @@ import _ from "lodash";
 import { TeacherRatings } from "./TeacherRatings";
 import { CourseRatings } from "./CourseRatings";
 import { RouteComponentProps, useParams } from "react-router";
+import { Container, Row, Col } from "react-bootstrap";
+import logo from "../images/logo.png";
 
 
 var mounted = false;
@@ -108,27 +110,36 @@ export default class Home extends Component<RouteComponentProps<RouteParams>> {
     };
 
     return (
-      <div>
-        <div>
-          <form onSubmit={this.handleSearchSubmit.bind(this)}>
-            <Search
-              type="search"
-              loading={isLoading}
-              onResultSelect={this.handleResultSelect}
-              aligned="right"
-              size="big"
-              onSearchChange={this.handleSearchChange}
-              results={results}
-              value={value}
-              style={{
-                display: "flex",
-                justifyContent: "flex-end",
-                paddingTop: "20px",
-                paddingRight: "20px",
-              }}
-            />
-          </form>
-        </div>
+      <div style={{ backgroundColor: "lightcyan" }}>
+        <Container>
+          <Row>
+            <Col>
+              <img src={logo} height={100} />
+            </Col>
+            <Col></Col>
+            <Col>
+              <form onSubmit={this.handleSearchSubmit.bind(this)}>
+                <Search
+                  type="search"
+                  loading={isLoading}
+                  onResultSelect={this.handleResultSelect}
+                  aligned="right"
+                  size="big"
+                  onSearchChange={this.handleSearchChange}
+                  results={results}
+                  value={value}
+                  placeholder="Enter a teacher or course"
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    paddingTop: "20px",
+                    paddingRight: "20px",
+                  }}
+                />
+              </form>
+            </Col>
+          </Row>
+        </Container>
         {page()}
       </div>
     );
