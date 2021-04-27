@@ -13,6 +13,7 @@ import {
   TextArea,
 } from "semantic-ui-react";
 import { ModalRapper } from "../Components/ModalRapper";
+import { DeleteRapper } from "../Components/DeleteRapper";
 
 interface sState {
   newField: boolean;
@@ -55,6 +56,15 @@ export const SurveyCreation: React.FC = () => {
       },
       body: JSON.stringify(data),
     });
+  };
+
+  const deleteSurvey = (index: number) => {
+    const tempState = state;
+
+    tempState.newResponses.splice(index, 1);
+    console.log(index);
+    setState(tempState);
+    setValue((value) => value + 1);
   };
 
   const handleFormChange = (
@@ -170,7 +180,12 @@ export const SurveyCreation: React.FC = () => {
                   style={{ minHeight: 100, minWidth: "80%" }}
                   name="class_comments"
                 />
-                <ModalRapper index={index} change={changeQuestion} />
+                <ModalRapper
+                  index={index}
+                  change={changeQuestion}
+                  initialQuestion={r}
+                />
+                <DeleteRapper index={index} change={deleteSurvey} />
               </Row>
             </div>
             <br />
@@ -213,6 +228,7 @@ export const SurveyCreation: React.FC = () => {
             </Form>
           </Modal.Content>
         </Modal>
+
         <br />
         <Button onClick={onClickSaveSurvey}>
           <Icon name="save" />

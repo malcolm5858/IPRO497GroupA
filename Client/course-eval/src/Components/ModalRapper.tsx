@@ -13,13 +13,14 @@ import {
 interface Props {
   change: Function;
   index: number;
+  initialQuestion: string;
 }
 
 export function ModalRapper(props: Props) {
-  const { change, index } = props;
+  const { change, index, initialQuestion } = props;
   const [editState, closeEditModal] = useState(false);
 
-  const [question, setQuestion] = useState("");
+  const [question, setQuestion] = useState(initialQuestion);
 
   const handleEditButton = (
     e: React.FormEvent<HTMLFormElement>,
