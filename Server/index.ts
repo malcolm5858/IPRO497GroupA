@@ -38,6 +38,11 @@ interface teacherRatingsData {
   termBreakdown: histBreakdown[];
 }
 
+interface teacherViewData {
+  name: string;
+  surveys: { className: string; surveyId: string }[];
+  studentLinks: { studentName: string; studentLink: string }[][];
+}
 // ROUTES
 
 app.post("/newSurvey", async (req, res) => {
@@ -575,6 +580,101 @@ app.get("/ClickRatings/:id/:type", (req, res) => {
     });
   } catch (error) {
     console.log(error.message);
+  }
+});
+
+app.get("/getClasses", async (req, res) => {
+  try {
+    var classResults;
+
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+
+      const db = client.db(db_name);
+      const classes = db.collection("Courses");
+
+      classResults = await classes.find({}).toArray();
+
+      var results: any[] = [];
+
+      classResults.forEach((element: any) => {
+        const className = element.department + " " + element.course_number;
+        results.push({ key: className, text: className, value: element._id });
+      });
+      client.close();
+
+      res.status(200).json({
+        status: "ok",
+        responses: results,
+      });
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+app.get("/getStudents", async (req, res) => {
+  try {
+    var studentResults;
+
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+
+      const db = client.db(db_name);
+      const students = db.collection("Students");
+
+      studentResults = await students.find({}).toArray();
+
+      var results: any[] = [];
+
+      studentResults.forEach((element: any) => {
+        results.push({
+          key: element.student_name,
+          text: element.student_name,
+          value: element._id,
+        });
+      });
+      client.close();
+
+      res.status(200).json({
+        status: "ok",
+        responses: results,
+      });
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+app.get("/getTeacherView/:teacherId", async (req, res) => {
+  try {
+    const { teacherId } = req.params;
+
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+
+      const db = client.db(db_name);
+      const profs = db.collection("Professors");
+      const surveys = db.collection("Surveys");
+
+      const teacher = await profs.findOne({ _id: ObjectId(teacherId) });
+      const selectedSurveys = await surveys
+        .find({ professor_id: ObjectId(teacherId) })
+        .toArray();
+      var surveysIn: { className: string; surveyId: string }[] = [];
+      var links: { studentName: string; studentLink: string }[][] = [];
+      var data: teacherViewData = {
+        name: teacher.professor_name,
+        surveys: surveysIn,
+        studentLinks: links,
+      };
+
+      res.status(200).json({
+        status: "ok",
+        responses: data,
+      });
+    });
+  } catch (error) {
+    console.error(error.message);
   }
 });
 
