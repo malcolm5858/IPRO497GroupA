@@ -6,6 +6,9 @@ import { HistogramWithData } from "../Components/HistogramWithData";
 import Rating from "../Components/Rating";
 import RatingBreakdown from "../Components/RatingBreakdown";
 import { RouteComponentProps } from "react-router";
+import logo from "../images/logo.png";
+import { cpuUsage } from "node:process";
+import "../css/Survey.css";
 
 interface hState {
   isLoading: boolean;
@@ -78,34 +81,40 @@ export default class Home extends Component<RouteComponentProps<RouteParams>> {
   render() {
     const { isLoading, value, results, dataFromApi } = this.state;
     return (
-      <>
+      <div style={{ backgroundColor: "lightcyan", height: "100vh" }}>
         <Container>
-          <p
-            style={{ fontSize: 140, fontWeight: "bold", textAlign: "center" }}>
-            {"Product Title"}
-          </p>
-          <div>
-            <form onSubmit={this.handleSearchSubmit.bind(this)}>
-              <Search
-                type="search"
-                loading={isLoading}
-                onResultSelect={this.handleResultSelect}
-                aligned="fluid"
-                size="massive"
-                onSearchChange={this.handleSearchChange}
-                results={results}
-                value={value}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  paddingTop: "20px",
-                  paddingRight: "20px",
-                }}
-              />
-            </form>
-        </div>
+          <Row>
+            <Col>
+              <img src={logo} height={200} className="d-block mx-auto img-fluid w-50 mt-5 mb-5" />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div>
+                <form onSubmit={this.handleSearchSubmit.bind(this)}>
+                  <Search
+                    type="search"
+                    loading={isLoading}
+                    onResultSelect={this.handleResultSelect}
+                    aligned="fluid"
+                    size="massive"
+                    onSearchChange={this.handleSearchChange}
+                    results={results}
+                    value={value}
+                    placeholder="Enter a teacher or course"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      paddingTop: "20px",
+                      paddingRight: "20px",
+                    }}
+                  />
+                </form>
+              </div>
+            </Col>
+          </Row>
         </Container>
-      </>
+      </div>
     );
   }
 }
