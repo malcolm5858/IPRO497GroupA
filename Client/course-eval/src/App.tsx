@@ -9,11 +9,7 @@ import { Login } from "./Pages/Login";
 import Launch from "./Pages/Launch";
 import { SurveyResponses } from "./Pages/SurveyResponses";
 import { SurveyCreation } from "./Pages/SurveyCreation";
-<<<<<<< master
-
-=======
 import TeacherView from "./Pages/TeacherView";
->>>>>>> Added pages
 //import { launch } from "./Pages/launch";
 
 function App() {
