@@ -3,7 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import { HistogramWithData } from "../Components/HistogramWithData";
 import Rating from "../Components/Rating";
 import RatingBreakdown from "../Components/RatingBreakdown";
-
+import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 interface histBreakdown {
   term: String;
   Rating: number;
@@ -94,7 +95,7 @@ export function TeacherRatings(props: any) {
   }, [props]);
 
   return (
-    <div style={{ backgroundColor: "lightcyan"}}>
+    <div style={{ backgroundColor: "lightcyan" }}>
       <Container>
         <Row>
           <Col>
@@ -129,6 +130,13 @@ export function TeacherRatings(props: any) {
               title="Breakdown by Term"
               data={data.termBreakdown}
             />
+          </Col>
+        </Row>
+        <Row className="mt-5">
+          <Col>
+            <Link to={"/View/" + data.teacher_id}>
+              <Button> View teacher Page</Button>
+            </Link>
           </Col>
         </Row>
       </Container>
