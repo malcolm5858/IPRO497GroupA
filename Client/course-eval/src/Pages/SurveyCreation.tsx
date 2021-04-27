@@ -59,6 +59,7 @@ export const SurveyCreation: React.FC = () => {
       body: JSON.stringify(data),
     });
     history.push("/View/" + teacherId);
+<<<<<<< HEAD
   };
 
   const deleteSurvey = (index: number) => {
@@ -68,6 +69,8 @@ export const SurveyCreation: React.FC = () => {
     console.log(index);
     setState(tempState);
     setValue((value) => value + 1);
+=======
+>>>>>>> teacherPage
   };
 
   const handleFormChange = (
