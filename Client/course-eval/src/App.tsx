@@ -5,8 +5,10 @@ import { Survey } from "./Components/Survey";
 import Home from "./Pages/Home";
 import { TeacherRatings } from "./Pages/TeacherRatings";
 import { CourseRatings } from "./Pages/CourseRatings";
+import { Login } from "./Pages/Login";
 import Launch from "./Pages/Launch";
 import { SurveyCreation } from "./Pages/SurveyCreation";
+import TeacherView from "./Pages/TeacherView";
 //import { launch } from "./Pages/launch";
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
           path="/CreateSurvey/:teacherId/:classId"
           component={SurveyCreation}
         />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/View/:teacherId" component={TeacherView} />
         <Route path="/" component={Launch} />
       </Switch>
     </Router>

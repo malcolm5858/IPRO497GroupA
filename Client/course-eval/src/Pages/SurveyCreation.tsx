@@ -3,6 +3,7 @@ import { size } from "lodash";
 import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
 import {
   Button,
   Form,
@@ -36,6 +37,7 @@ interface paramType {
 }
 
 export const SurveyCreation: React.FC = () => {
+  const history = useHistory();
   const [state, setState] = useState<sState>(initialState);
   const [value, setValue] = useState(0);
   const [modalState, closeModal] = useState(false);
@@ -55,6 +57,7 @@ export const SurveyCreation: React.FC = () => {
       },
       body: JSON.stringify(data),
     });
+    history.push("/View/" + teacherId);
   };
 
   const handleFormChange = (
