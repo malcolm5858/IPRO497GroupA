@@ -31,6 +31,17 @@ interface teacherRatingsData {
   termBreakdown: { term: String; Rating: number }[];
 }
 
+interface SurveyResponsesData {
+  department: String;
+  course_number: number;
+  prof_name: String;
+  term: String;
+  prof_rating: number;
+  course_rating: number;
+  survey_questions: string[];
+  survey_answers: string[][];
+}
+
 // ROUTES
 app.post("/surveyResponse", async (req, res) => {
   try {
@@ -442,6 +453,71 @@ app.get("/", (req, res) => res.send("Express + TypeScript Server"));
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
 });
+
+
+
+
+//New Routes
+app.get("/SurveyResponses/:course_id/:prof_id/:term", async (req, res) => {
+  try {
+    const { course_id, prof_id, term } = req.params;
+    MongoClient.connect(db_url, async function (err: any, client: any) {
+      assert.equal(null, err);
+      const db = client.db(db_name);
+      const responses = db.collection("Responses");
+
+      const courseResponse = await responses
+        .find({ course_id: ObjectId(course_id),  professor_id: ObjectId(prof_id), semester: term})
+        .toArray();
+      //const course = await courses.find({ _id: ObjectId(course_id) }).toArray();
+      client.close();
+
+      const departments = courseResponse[0].course_department;
+      const course_numbers = courseResponse[0].course_number;
+      const prof_names = courseResponse[0].professor_name;
+      const terms = courseResponse[0].semester;
+      var survey_question = ["On a scale from 1 to 5, how satisfied are you with your instructor for this course?", "On a scale from 1 to 5, how satisfied are you with the course material?"];
+      var survey_answer: any[][] = [];
+
+      survey_question = survey_question.concat(courseResponse[0].professor_made_questions)
+      courseResponse.forEach((element: any) => {
+        var default_answers = element.default_questions_responses;
+        var answers = element.professor_made_questions_responses;
+        var newArr = default_answers.concat(answers);
+        survey_answer.push(newArr);
+      });
+
+      let average = (array: any[]) =>
+        Math.round((array.reduce((a, b) => a + b) / array.length) * 100) / 100;
+      
+      var prof_overall = average(courseResponse.map((a: any) => a.professor_rating));
+      var course_overall = average(courseResponse.map((a : any) => a.class_rating));
+
+
+      const data: SurveyResponsesData = {
+        department: departments,
+        course_number: course_numbers,
+        prof_name: prof_names,
+        term: terms,
+        prof_rating: prof_overall,
+        course_rating: course_overall,
+        survey_questions: survey_question,
+        survey_answers: survey_answer,
+      };
+
+      res.status(200).json({
+        status: "ok",
+        responses: data,
+      });
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+
+
+
 
 function renameKey(obj: any, oldKey: any, newKey: any) {
   obj[newKey] = obj[oldKey];
