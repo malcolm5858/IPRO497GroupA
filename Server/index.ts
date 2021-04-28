@@ -89,6 +89,7 @@ app.post("/newSurvey", async (req, res) => {
           course_id: ObjectId(req.body.classId),
           course_number: course.course_number,
           course_department: course.department,
+          semester: req.body.term,
           professor_made_questions: req.body.newResponses,
         };
 
