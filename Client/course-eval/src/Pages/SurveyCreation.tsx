@@ -31,11 +31,13 @@ interface dataToSend {
   professorId: string;
   classId: string;
   newResponses: string[];
+  term: string;
 }
 
 interface paramType {
   teacherId: string;
   classId: string;
+  term: string;
 }
 
 export const SurveyCreation: React.FC = () => {
@@ -44,13 +46,14 @@ export const SurveyCreation: React.FC = () => {
   const [value, setValue] = useState(0);
   const [modalState, closeModal] = useState(false);
   const [question, setQuestion] = useState("");
-  const { teacherId, classId } = useParams<paramType>();
+  const { teacherId, classId, term } = useParams<paramType>();
 
   const onClickSaveSurvey = () => {
     let data: dataToSend = {
       professorId: teacherId,
       classId: classId,
       newResponses: state.newResponses,
+      term: term,
     };
     fetch("http://localhost:8000/newSurvey", {
       method: "POST",
@@ -59,7 +62,7 @@ export const SurveyCreation: React.FC = () => {
       },
       body: JSON.stringify(data),
     });
-    history.push("/View/" + teacherId);
+    setTimeout(() => history.push("/View/" + teacherId), 300);
   };
 
   const deleteSurvey = (index: number) => {
@@ -108,29 +111,28 @@ export const SurveyCreation: React.FC = () => {
   };
 
   return (
-    <div style={{backgroundColor: "lightcyan", height: "100vh"}}>
+    <div style={{ backgroundColor: "lightcyan", height: "100vh" }}>
       <Container>
         <Row>
           <Col>
-            <img src={logo} height={100}/>
+            <img src={logo} height={100} />
           </Col>
           <Col>
-            <h1 style={{ textAlign: "center", fontSize: "40px" }} className="mt-5">Create a Survey</h1>
+            <h1
+              style={{ textAlign: "center", fontSize: "40px" }}
+              className="mt-5">
+              Create a Survey
+            </h1>
           </Col>
           <Col></Col>
         </Row>
-      
-      
-      
-      
+
         <Row className="mt-5">
           <Col>
-          <h2 style={{ textAlign: "left"}}>
-            Default Questions:
-          </h2>
+            <h2 style={{ textAlign: "left" }}>Default Questions:</h2>
           </Col>
-          </Row>
-          <Row className="mt-1">
+        </Row>
+        <Row className="mt-1">
           <Col>
             <label>
               On a scale from 1 to 5, how satisfied are
@@ -146,17 +148,17 @@ export const SurveyCreation: React.FC = () => {
           </Col>
           <Col></Col>
         </Row>
-      <Row>
-        <Col>
-        <TextArea
-          disabled
-          placeholder="Input text here"
-          style={{ minHeight: 100, minWidth: "80%" }}
-          name="prof_comments"
-        />
-        </Col>
-      </Row>
-      
+        <Row>
+          <Col>
+            <TextArea
+              disabled
+              placeholder="Input text here"
+              style={{ minHeight: 100, minWidth: "80%" }}
+              name="prof_comments"
+            />
+          </Col>
+        </Row>
+
         <Row className="mt-5">
           <Col>
             <label>
@@ -173,92 +175,90 @@ export const SurveyCreation: React.FC = () => {
           </Col>
           <Col></Col>
         </Row>
-      
-      <Row>
-        <Col>
-        <TextArea
-          disabled
-          placeholder="Input text here"
-          style={{ minHeight: 100, minWidth: "80%" }}
-          name="class_comments"
-        />
-        </Col>
-      </Row>
-      <br />
-      <h2 style={{ textAlign: "left"}}>
-        Custom Questions:
-      </h2>
-      {state.newField ? (
-        state.newResponses.map((r: string, index: number) => (
-          <div>
-            <div>
-              <Row>
-                <Col md={3}>
-                  <label>{r}</label>
-                </Col>
-              </Row>
-              <Row style={{paddingLeft: 15}}>
-                <TextArea
-                  disabled
-                  placeholder="Input text here"
-                  style={{ minHeight: 100, minWidth: "80%" }}
-                  name="class_comments"
-                />
-                <ModalRapper
-                  index={index}
-                  change={changeQuestion}
-                  initialQuestion={r}
-                />
-                <DeleteRapper index={index} change={deleteSurvey} />
-              </Row>
-            </div>
-            <br />
-          </div>
-        ))
-      ) : (
-        <div />
-      )}
-      <br />
-      <Row style={{paddingLeft: 15}}>
-        <Modal
-          centered={true}
-          size={"small"}
-          style={{
-            height: 250,
-            width: 800,
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            marginLeft: -400,
-            marginTop: -125,
-          }}
-          trigger={
-            <Button onClick={() => closeModal(true)}>
-              <Icon name="add" />
-              Add new Field
-            </Button>
-          }
-          onClose={closeModalHandler}
-          open={modalState}>
-          <Modal.Header>Enter question below</Modal.Header>
-          <Modal.Content>
-            <Form onSubmit={handleCreateButton}>
-              <Form.TextArea
-                name="question"
-                value={question}
-                onChange={handleFormChange}
-              />
-              <Button id="submit">Save</Button>
-            </Form>
-          </Modal.Content>
-        </Modal>
 
+        <Row>
+          <Col>
+            <TextArea
+              disabled
+              placeholder="Input text here"
+              style={{ minHeight: 100, minWidth: "80%" }}
+              name="class_comments"
+            />
+          </Col>
+        </Row>
         <br />
-        <Button onClick={onClickSaveSurvey}>
-          <Icon name="save" />
-          Save Survey
-        </Button>
-      </Row>
+        <h2 style={{ textAlign: "left" }}>Custom Questions:</h2>
+        {state.newField ? (
+          state.newResponses.map((r: string, index: number) => (
+            <div>
+              <div>
+                <Row>
+                  <Col md={3}>
+                    <label>{r}</label>
+                  </Col>
+                </Row>
+                <Row style={{ paddingLeft: 15 }}>
+                  <TextArea
+                    disabled
+                    placeholder="Input text here"
+                    style={{ minHeight: 100, minWidth: "80%" }}
+                    name="class_comments"
+                  />
+                  <ModalRapper
+                    index={index}
+                    change={changeQuestion}
+                    initialQuestion={r}
+                  />
+                  <DeleteRapper index={index} change={deleteSurvey} />
+                </Row>
+              </div>
+              <br />
+            </div>
+          ))
+        ) : (
+          <div />
+        )}
+        <br />
+        <Row style={{ paddingLeft: 15 }}>
+          <Modal
+            centered={true}
+            size={"small"}
+            style={{
+              height: 250,
+              width: 800,
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              marginLeft: -400,
+              marginTop: -125,
+            }}
+            trigger={
+              <Button onClick={() => closeModal(true)}>
+                <Icon name="add" />
+                Add new Field
+              </Button>
+            }
+            onClose={closeModalHandler}
+            open={modalState}>
+            <Modal.Header>Enter question below</Modal.Header>
+            <Modal.Content>
+              <Form onSubmit={handleCreateButton}>
+                <Form.TextArea
+                  name="question"
+                  value={question}
+                  onChange={handleFormChange}
+                />
+                <Button id="submit">Save</Button>
+              </Form>
+            </Modal.Content>
+          </Modal>
+
+          <br />
+          <Button onClick={onClickSaveSurvey}>
+            <Icon name="save" />
+            Save Survey
+          </Button>
+        </Row>
       </Container>
     </div>
   );

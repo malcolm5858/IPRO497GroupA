@@ -82,11 +82,16 @@ export default function TeacherView() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "lightcyan", height: "100vh" }}>
+    <div
+      style={{
+        backgroundColor: "lightcyan",
+        height: "100vh",
+        overflow: "auto",
+      }}>
       <h1 style={stylesP}>Professor: {data.name}</h1>
       <h2 style={stylesP}>Surveys:</h2>
       <div style={stylesP}>
-        <Table celled padded structured>
+        <Table>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell colSpan="1">Surveys</Table.HeaderCell>
@@ -120,7 +125,7 @@ export default function TeacherView() {
                 </Table.Row>
                 {s.map((l: { studentName: string; studentLink: string }) => (
                   <Table.Row>
-                    <Table.Cell>{l.studentName}</Table.Cell>
+                    <Table.Cell width={3}>{l.studentName}</Table.Cell>
                     <Table.Cell>
                       <a href={l.studentLink}> {l.studentLink}</a>
                     </Table.Cell>
@@ -134,6 +139,8 @@ export default function TeacherView() {
       <div style={stylesP}>
         <AddSurveyRapper teacherId={teacherId} />
       </div>
+      <br />
+      <br />
     </div>
   );
 }

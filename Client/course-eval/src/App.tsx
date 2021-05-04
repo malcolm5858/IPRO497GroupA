@@ -27,7 +27,7 @@ function App() {
         />
         <Route
           exact
-          path="/CreateSurvey/:teacherId/:classId"
+          path="/CreateSurvey/:teacherId/:classId/:term"
           component={SurveyCreation}
         />
         <Route exact path="/Login" component={Login} />
